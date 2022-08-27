@@ -1,0 +1,647 @@
+/****************/
+/* GOOGLE FONTS */
+/****************/
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
+
+
+/***********/
+/* GENERAL */
+/***********/
+
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: #5CC52A;
+}
+
+a:hover {
+color: #5CC52A;
+transition: 0.2s;}
+
+body {
+background: rgb(243, 243, 243);
+}
+
+h1, h2 {
+font-family: 'Montserrat', sans-serif;
+text-align: center;
+}
+
+h1 .heading-color{
+color: #5CC52A;
+text-transform: uppercase;
+}
+
+
+/****************/
+/* ICONS COLORS */
+/****************/
+
+
+.blue {
+  color: blue;
+}
+.green {
+  color: #5CC52A;
+}
+.white {
+  color: #fff;
+}
+.purple {
+  color: grey;
+}
+.red {
+  color: red;
+}
+
+
+/***********/
+/* BUTTONS */
+/***********/
+
+
+.save {
+  background-color: #5CC52A;
+  color: white;
+  border-radius: 6px;
+}
+
+.delete {
+  border-radius: 6px;
+  border: 2px solid red;
+}
+
+.back-index {
+  border-radius: 6px;
+  border: 2px solid black;
+  background-color: #fff;
+  padding: 6px 12px;
+  margin-right: 12px;
+}
+.modify-button {
+  background-color: #ececec;
+}
+
+.back-index:hover{
+  background-color: black;
+  transition: 0.6s;
+  color: #fff;
+}
+
+.edit {
+  border-radius: 6px;
+  border: 2px solid purple;
+  background-color: #fff;
+  padding: 6px 12px;
+}
+
+
+/**********/
+/* HEADER */
+/**********/
+
+
+.wrapper .header{
+  z-index: 1;
+  background: #12131C;
+  position: fixed;
+  width: calc(100% - 0%);
+  height: 70px;
+  display: flex;
+  top: 0;
+}
+
+.wrapper .header .header-menu {
+  width: calc(100% - 0%);
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 22px;
+}
+
+.wrapper .header .header-menu .title {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.wrapper .header .header-menu .title span {
+  color: #5CC52A;
+  text-transform: uppercase;
+}
+
+.wrapper .header .header-menu .sidebar-btn {
+  color: #fff;
+  position: absolute;
+  margin-left: 240px;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  transition-property: color;
+}
+
+.wrapper .header .header-menu .sidebar-btn:hover {
+  color:#5CC52A;
+}
+
+.wrapper .header .header-menu ul {
+  display: flex;
+}
+
+.wrapper .header .header-menu ul li a {
+  background: #fff;
+  color: #000;
+  display: block;
+  margin: 0 10px;
+  font-size: 18px;
+  width: 36px;
+  height: 36px;
+  line-height: 35px;
+  text-align: center;
+  border-radius: 50%;
+  transition: 0.3s;
+  transition-property: background, color;
+}
+
+.wrapper .header .header-menu ul li a:hover {
+  background: #5CC52A;
+}
+
+.wrapper .header .header-menu ul li .logout:hover {
+  background: red;
+  color: white
+}
+
+
+@media screen and (max-width: 4500px) {
+  #welcome-message { 
+            display: none;
+           }
+}
+
+/* #home-icon {
+  color: red;
+} */
+@media screen and (max-width: 455px) {
+  .header-icon { 
+            display: none;
+           }
+}
+
+/***********/
+/* SIDEBAR */
+/***********/
+
+
+.wrapper .sidebar {
+  z-index: 1;
+  background: rgb(255, 255, 255);
+  position: fixed;
+  top: 70px;
+  width: 250px;
+  /* height: calc(100% - 9%); */
+  height: 100%;
+  transition: 0.3s;
+  transition-property: width;
+  overflow-y: auto;
+}
+
+.wrapper .sidebar .sidebar-menu {
+  overflow: hidden;
+}
+
+.wrapper .sidebar .sidebar-menu .profile img{
+  margin: 20px 0;
+  align-items: center;
+}
+
+.wrapper .sidebar .sidebar-menu .profile p{
+  color: #bbb;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin-left:30px;
+}
+
+.wrapper .sidebar .sidebar-menu .item{
+  width: 250px;
+  overflow: hidden;
+}
+
+.wrapper .sidebar .sidebar-menu .item .menu-btn{
+  display: block;
+  color: black;
+  position: relative;
+  padding: 25px 20px;
+  transition: 0.3s;
+  transition-property: color;
+}
+
+.wrapper .sidebar .sidebar-menu .item .menu-btn:hover{
+  color: #5CC52A;
+}
+
+.wrapper .sidebar .sidebar-menu .item .menu-btn i{
+  margin-right: 20px;
+}
+
+.wrapper .sidebar .sidebar-menu .item .menu-btn .drop-down{
+  float: right;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+/*************/
+/* CONTAINER */
+/*************/
+
+.wrapper .main-container {
+  /* width: (100% - 250px);
+  margin-left: 250px; */
+  /* padding: 15px; */
+  /* background: url(background-admin-console.jpg) no-repeat; */
+  background-size: cover;
+  /* height: 100vh; */
+  /* height: 100%; */
+  transition: 0.3s;
+}
+
+/********************/
+/* COLLAPSE SIDEBAR */
+/********************/
+
+.wrapper.collapse_menu .sidebar {
+  width: 60px;
+}
+
+.wrapper.collapse_menu .sidebar .profile img,
+.wrapper.collapse_menu .sidebar .profile p,
+.wrapper.collapse_menu .sidebar a span {
+  display: none;
+}
+
+.wrapper.collapse_menu .sidebar .sidebar-menu .item .menu-btn {
+  font-size: 23px;
+}
+
+.wrapper.collapse_menu .sidebar .sidebar-menu .item .sub-menu i {
+  font-size: 18px;
+  padding-left: 3px;
+}
+.wrapper.collapse_menu .sidebar .sidebar-menu .item .sub-menu  {
+  font-size: 18px;
+  margin-left: 3px;
+}
+
+.wrapper.collapse_menu .sidebar .sidebar-menu .item .sub-menu i {
+  font-size: 18px;
+  padding-left: 3px;
+}
+
+.wrapper.collapse_menu .main-container {
+  width: (100% - 70px);
+  margin-left: 60px;
+}
+
+
+/*************/
+/* CONTENT */
+/*************/
+
+.wrapper .main-container .content {
+  /* background: red; */
+  padding: 20px;
+  margin-top: 100px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+
+
+/**************/
+/* LOGIN FORM */
+/**************/
+
+
+.global-container{
+	height:100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+form{
+	padding-top: 10px;
+	font-size: 14px;
+	margin-top: 30px;
+}
+
+.card-title{ font-weight:300; }
+
+
+.login-form{ 
+	width:330px;
+	margin:20px;
+}
+
+/*****************/
+/* TOGGLE BUTTON */
+/*****************/
+
+
+.on, .off {
+  color: white;
+  border-radius: 6px;
+  text-align: center;
+  padding: 3px 8px;
+  max-width: 80%;
+}
+.on, .off{ 
+  background-color: green;
+}
+
+.off { 
+  background-color: red;
+  text-align: center;
+}
+
+
+/*********/
+/* FORMS */
+/*********/
+
+
+th {
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-bottom: 18px !important
+}
+
+
+/* SEARCH BAR  */
+
+
+
+/**********************/
+/*HOMEPAGE ADMIN CARDS*/
+/**********************/
+
+
+.cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card-home {
+  margin: 30px auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 30px;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.card-home .card-image {
+  width: inherit;
+  height: inherit;
+  border-radius: 30px;
+}
+
+.card-home .card-image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 30px;
+  object-fit: cover;
+}
+
+.card-home .card-title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size:24px;
+  margin-top: -80px;
+  height: 40px;
+}
+
+.card-home .card-title p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+
+}
+.card-home:hover {
+  transform: scale(1.1, 1.1);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.title-white {
+  text-transform: uppercase;
+  color: white;  
+}
+
+/* .title-black {
+  color: black;
+} */
+
+@media all and (max-width: 500px) {
+  .card-list {
+    flex-direction: column;
+  }
+}
+
+
+/**************/
+/* LOGIN PAGE */
+/**************/
+
+
+.homepage{
+  min-height:100vh;
+  display:flex;
+  background:url("/images/bg3.jpg");
+  align-items:center;
+  justify-content:center;
+}
+.login-container{
+  background:#fff;
+  opacity: 0.8;
+  border-radius: 16px;
+  text-align: center;
+  max-width:480px;
+  width:100%;
+  padding:20px;
+  margin:20px;
+}
+
+.banner-heading {
+  color: black;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  position: relative;
+  z-index: 1;
+  background: inherit;
+  overflow: hidden;
+  margin: 0 2rem;
+}
+
+.banner-heading:before {
+	content: "";
+	position: absolute;
+	background: inherit;
+	z-index: -1;
+	inset: 0;
+	filter: blur(1.9rem);
+	margin: -1.5rem;
+}
+
+#login-button {
+  background-color: #5CC52A;
+  color: #fff;
+  border:none;
+  text-transform: uppercase;
+  border-radius: 8px;
+}
+
+#login-button:hover {
+  background-color: white;
+  color: #5CC52A;
+  text-transform: uppercase;
+  transition: 0.4s;
+  border: 0.25px solid black
+}
+/***********
+/*H1 STYLE*/
+/**********/
+/* 
+.anim-typewriter {
+  display: inline-block;
+}
+.anim-typewriter .heading {
+  animation: typewriter 2s linear 1s 1 normal both,
+    blinkTextCursor 500ms step-end infinite normal;
+}
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: rgba(0, 0, 0, 0.75);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
+
+.heading {
+  display: inline-block;
+  text-shadow: 0px 10px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  margin-bottom: 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid rgba(0, 0, 0, 0.75);
+} */
+
+
+/*************/
+/* PRELOADER */
+/*************/
+
+
+.preloader {
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10000;
+  perspective: 1600px;
+  perspective-origin: 20% 50%;
+  transition: 0.5s all;
+  opacity: 1;
+}
+
+.spinner {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #f3f3f3;
+  border-top: 3px solid #5CC52A;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  animation: spin 1s infinite linear;
+}
+
+.preloader.fade {
+  opacity: 0;
+}
+
+.icon-preloader {
+  background-size: cover;
+  width: 52px;
+  height: 67px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  animation: ico 5s infinite linear;
+  transform-style: preserve-3d;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ico {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+
+footer {
+  /* position: relative;
+  bottom: 0; */
+  width: 100%;
+}
