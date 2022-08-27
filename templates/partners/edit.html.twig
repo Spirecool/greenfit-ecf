@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Partners{% endblock %}
+
+{% block body %}
+    <h1>Éditer le Partenaire :  {{ partner.name }}</h1>
+
+    {{ include('partners/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+    <div class="pt-4">
+        <i class="fa-solid fa-circle-arrow-left pl-3"></i>
+        <a href="{{ path('app_partners_index') }}">Revenir à la liste</a>
+    </div>
+
+    {{ include('partners/_delete_form.html.twig') }}
+{% endblock %}
