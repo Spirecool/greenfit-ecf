@@ -1,0 +1,29 @@
+    <div class="header">
+        <div class="header-menu">
+
+        
+            <a href="/admin">
+                <div class="title"> Green <span>FIT</span></div>
+            </a>
+
+             {% if  is_granted('ROLE_ADMIN') %}
+            <div class="sidebar-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            {% endif %}
+            
+        <ul>
+        {% if app.user %}
+          <li class="text-light pt-2" id="welcome-message">Bienvenue {{ app.user.firstname}}</li>
+        {% endif %}
+          <li class="header-icon"><a href="/"><i class="fa fa-home"></i></a></li>
+         {% if app.user %}
+          <li class="header-icon"><a href="/logout" class="logout"><i class="fa fa-power-off "></i></a></li>
+        {% else %}
+      <li class="header-icon"><a href="/login" class="login"><i class="fa fa-power-on "></i></a></li>
+        {% endif %}
+
+        </ul>
+      </div>
+    </div>
+    
