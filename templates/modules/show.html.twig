@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modules{% endblock %}
+
+{% block body %}
+    <h1>Modules</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ module.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ module.description }}</td>
+            </tr>
+            <tr>
+                <th>Est activé par défaut</th>
+                <td>{{ module.isDefault ? 'Oui' : 'Non' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <button class="btn modify-button mt-4"><a href="{{ path('app_modules_edit', {'id': module.id}) }}">Modifier</a></button>
+    </div>
+    <div class="pt-4">
+        <i class="fa-solid fa-circle-arrow-left pl-3"></i>
+        <a href="{{ path('app_modules_index') }}">Revenir à la liste</a>
+    </div>
+{# 
+    <a href="{{ path('app_modules_index') }}">Revenir à la liste</a>
+
+    <a href="{{ path('app_modules_edit', {'id': module.id}) }}">Éditer</a> #}
+
+    {{ include('modules/_delete_form.html.twig') }}
+{% endblock %}
