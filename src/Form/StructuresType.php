@@ -27,12 +27,13 @@ class StructuresType extends AbstractType
                 'required' => true,
                 'label' => 'Nom de la structure',
             ])
-            ->add('slug')
     
             ->add('users', PersonType::class, [
                 'data_class' => Users::class, 
                 'label' => 'Données du gérant',
             ]) 
+            ->add('manager_name')
+
             ->add('modules', EntityType::class, [
                 'required' => true,
                 'label' => 'Modules activés pour la structure',
@@ -40,6 +41,8 @@ class StructuresType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
             ])
+
+            ->add('partners')
            
         ;
     }

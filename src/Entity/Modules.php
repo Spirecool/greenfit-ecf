@@ -24,10 +24,8 @@ class Modules
     #[ORM\Column]
     private ?bool $is_default = null;
 
-    #[ORM\Column]
-    private ?bool $is_active = null;
 
-    #[ORM\ManyToMany(targetEntity: Partners::class, inversedBy: 'modules')]
+    #[ORM\ManyToMany(targetEntity: Partners::class, mappedBy: 'modules')]
     private Collection $partners;
 
     #[ORM\ManyToMany(targetEntity: Structures::class, inversedBy: 'modules')]
@@ -80,18 +78,7 @@ class Modules
         return $this;
     }
 
-    public function isIsActive(): ?bool
-    {
-        return $this->is_active;
-    }
-
-    public function setIsActive(bool $is_active): self
-    {
-        $this->is_active = $is_active;
-
-        return $this;
-    }
-
+    
     /**
      * @return Collection<int, Partners>
      */
@@ -138,5 +125,9 @@ class Modules
         $this->structures->removeElement($structure);
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->name;
     }
 }

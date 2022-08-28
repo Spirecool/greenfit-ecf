@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Modules;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,11 @@ class ModulesType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('description')
+            ->add('description', TextareaType::class, [
+                'help' => '(Veuillez saisir la description du module)',
+                'attr' => ['class' => 'tinymce'],
+                
+            ])
             ->add('is_default')
         ;
     }
@@ -24,4 +29,5 @@ class ModulesType extends AbstractType
             'data_class' => Modules::class,
         ]);
     }
+    
 }

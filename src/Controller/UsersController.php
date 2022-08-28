@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Users;
 use App\Form\UsersType;
+use App\Repository\RolesUsersRepository;
 use App\Repository\UsersRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,24 +24,22 @@ class UsersController extends AbstractController
     }
 
     #[Route('/new', name: 'app_users_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, UsersRepository $usersRepository, UserPasswordHasherInterface $userPasswordHasher): Response
+    public function new(Request $request, UsersRepository $usersRepository, UserPasswordHasherInterface $userPasswordHasher, RolesUsersRepository $rolesUsersRepository): Response
     {
         $user = new Users();
         $form = $this->createForm(UsersType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            
+            $r[]='ROLE_ADMIN';
+            $user->setRoles($r);
+            $user->setRolesUsers($rolesUsersRepository->find(1));
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
                     $form->get('password')->getData()
                 )
             );
-
-            // on met un tableau vide r et à l'intérieur on pousse la donnée nom à l'intérieur du tableau vide et on apsse ce tableau dans setRoles
-            $r[]=$form->get('roles_users') -> getData() ->getName();
-            $user->setRoles($r);
 
             // on persiste le user
             $usersRepository->add($user, true);

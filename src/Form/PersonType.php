@@ -37,11 +37,11 @@ class PersonType extends AbstractType
                 ])
             
                 
-            ->add('roles_users', EntityType::class, [
-                    'required' => true,
-                    'label' => 'Rôle de l\'utilisateur',
-                    'class' => RolesUsers::class,
-                ])
+            // ->add('roles_users', EntityType::class, [
+            //         'required' => true,
+            //         'label' => 'Rôle de l\'utilisateur',
+            //         'class' => RolesUsers::class,
+            //     ])
     
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,

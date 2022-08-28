@@ -27,7 +27,7 @@ class Partners
     #[ORM\OneToMany(mappedBy: 'partners', targetEntity: Structures::class)]
     private Collection $structures;
 
-    #[ORM\ManyToMany(targetEntity: Modules::class, mappedBy: 'partners')]
+    #[ORM\ManyToMany(targetEntity: Modules::class, inversedBy: 'partners')]
     private Collection $modules;
 
     public function __construct()
@@ -132,5 +132,9 @@ class Partners
         }
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->name;
     }
 }

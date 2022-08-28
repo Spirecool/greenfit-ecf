@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Structures{% endblock %}
+
+{% block body %}
+    <h1 class="py-5">Liste des <span class="heading-color">Structures</span></h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom de la structure</th>
+                <th>Est active</th>
+                <th>Appartient au partenaire</th>
+                <th>Adresse Email</th>
+                <th>Ville</th>
+                <th>Modules activés </th>
+                <th>Nom Gérant</th>
+                <th>Voir</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for structure in structures %}
+            <tr>
+                <td>{{ structure.name }}</td>
+                <td>{{ structure.isActive ? '<div class="on">Activé</div>' : '<div class="off">Désactivé</div>' }}</td>
+                <td>{{ structure.partners ? structure.partners.name : '' }}</td>
+                <td>{{ structure.users.email }}</td>
+                <td>{{ structure.users.city }}</td>
+                <td>
+                    {% if structure.Modules %}
+                    {% for module in structure.Modules %}
+                    {{module}}
+                    {% endfor %}
+                    {% endif %}
+                </td>
+          
+                <td>{{ structure.users.lastname }}</td>
+                {# <td>
+                    <a href="{{ path('app_structures_show', {'id': structure.id}) }}">Voir</a>
+                    <a href="{{ path('app_structures_edit', {'id': structure.id}) }}">Modifier</a>
+                </td> #}
+
+                <td class="text-center">
+                    <a href="{{ path('app_structures_show', {'id': structure.id}) }}"<i class="fa-solid fa-eye blue"></i> </a>
+                </td>
+                <td class="text-center">
+                    <a href="{{ path('app_structures_edit', {'id': structure.id}) }}"><i class="fa-solid fa-pen purple"></i></a>
+                </td>
+                <td class="text-center">
+                    <a href="{{ path('app_structures_delete', {'id': structure.id}) }}"><i class="fa-solid fa-trash-can red"></i></a>
+                </td>
+            </tr>
+        
+        {% else %}
+            <tr>
+                <td colspan="5">Aucune donnée trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <a href="{{ path('app_structures_new') }}"><i class="fa-solid fa-plus green"></i> Créer une nouvelle structure</a>
+{% endblock %}

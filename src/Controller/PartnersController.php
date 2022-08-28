@@ -6,11 +6,14 @@ use App\Entity\Partners;
 use App\Entity\Users;
 use App\Form\PartnersType;
 use App\Repository\PartnersRepository;
+use App\Repository\RolesUsersRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 #[Route('/partners')]
 class PartnersController extends AbstractController
@@ -24,7 +27,7 @@ class PartnersController extends AbstractController
     }
 
     #[Route('/new', name: 'app_partners_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, PartnersRepository $partnersRepository, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, PartnersRepository $partnersRepository, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher, RolesUsersRepository $rolesUsersRepository): Response
     {
         $partner = new Partners();
         $form = $this->createForm(PartnersType::class, $partner);
@@ -34,12 +37,22 @@ class PartnersController extends AbstractController
             //on prend toute la partie qui est dans user
             $user = $form->get('users') -> getData();
             // dd($user -> getRolesUsers() -> getName());
-            $r[]=$user -> getRolesUsers() -> getName();
+            // $r[]=$user -> getRolesUsers() -> getName();
+            $r[]='ROLE_PARTNER';
             $user->setRoles($r);
-            $entityManager->persist($form->get('users') -> getData());
+            $user->setRolesUsers($rolesUsersRepository->find(2));
+           
             $partnersRepository->add($partner, true);
-            //persiste    
-            $user= new Users();    
+
+            $user->setPassword(
+                $userPasswordHasher->hashPassword(
+                    $user,
+                    $user->getPassword(),
+                )
+            );
+
+            $entityManager->persist($user);
+
             return $this->redirectToRoute('app_partners_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -69,12 +82,35 @@ class PartnersController extends AbstractController
     
 
     #[Route('/{id}/edit', name: 'app_partners_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Partners $partner, PartnersRepository $partnersRepository): Response
+    public function edit(Request $request, Partners $partner, PartnersRepository $partnersRepository, EntityManagerInterface $entityManager, RolesUsersRepository $rolesUsersRepository, UserPasswordHasherInterface $userPasswordHasher): Response
     {
         $form = $this->createForm(PartnersType::class, $partner);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $user = $form->get('users') -> getData();
+            // dd($user -> getRolesUsers() -> getName());
+            // $r[]=$user -> getRolesUsers() -> getName();
+            $r[]='ROLE_PARTNER';
+            $user->setRoles($r);
+            $user->setRolesUsers($rolesUsersRepository->find(2));
+
+            $user->setPassword(
+                $userPasswordHasher->hashPassword(
+                    $user,
+                    $user->getPassword(),
+                )
+            );
+
+            $entityManager->persist($user);
+
+            $partnersRepository->add($partner, true);
+
+            // Gestion des modules
+                // on prend les modules cochés dans le formulaire
+            $modules = $form->get('modules')->getData();
+            
             $partnersRepository->add($partner, true);
 
             return $this->redirectToRoute('app_partners_index', [], Response::HTTP_SEE_OTHER);

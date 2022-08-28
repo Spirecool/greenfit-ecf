@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche Structure{% endblock %}
+
+{% block body %}
+  
+       <h1 class="py-5">Fiche Structure : <span class="heading-color"> {{structure.name}} </span></h1>
+
+    <table class="table">
+        <tbody>
+                <p class="my-5 text-center"> Voici la liste de tous les modules actuellement activés de votre structure ( {{structure.name}} ).</p>
+             <tr>
+                <th scope="col">Modules activés</th> </tr>
+            <tr>  
+                    {% for module in modules %}
+                    <tr>
+                    <td>
+                    {{module.name}}
+                    </td>
+                    {% for m in structure.modules %}
+                    <td>
+                    {{module.id == m.id ? '<div class="on ">Oui</div>' : '<div class="off ">Non</div>'}}
+                    </td>
+                    {% else %}
+                    <td>non</td>
+                    </tr>
+                    {% endfor %}
+                    {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+
+
+    
+{% endblock %}

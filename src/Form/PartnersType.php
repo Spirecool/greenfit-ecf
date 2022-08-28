@@ -23,7 +23,7 @@ class PartnersType extends AbstractType
                 'required' => true,
                 'label' => 'Nom du partenaire',
             ])
-            ->add('slug')
+    
             ->add('users', PersonType::class, [
                 'data_class' => Users::class,
                 'label' => 'Données du gérant',
@@ -35,6 +35,8 @@ class PartnersType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
             ])
+            
+            ->add('modules')
         ;
     }
 
