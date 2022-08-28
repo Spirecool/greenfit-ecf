@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Structures;
 use App\Form\StructuresType;
 use App\Repository\ModulesRepository;
+use App\Repository\PartnersRepository;
 use App\Repository\RolesUsersRepository;
 use App\Repository\StructuresRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -27,23 +28,22 @@ class StructuresController extends AbstractController
 
     #[Route('/new', name: 'app_structures_new', methods: ['GET', 'POST'])]
 
-    public function new(Request $request, StructuresRepository $structuresRepository, EntityManagerInterface $entityManager, RolesUsersRepository $rolesUsersRepository, UserPasswordHasherInterface $userPasswordHasher): Response
+    public function new(Request $request, StructuresRepository $structuresRepository, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher, RolesUsersRepository $rolesUsersRepository): Response
     {
         // créer une structure et son user associé 
         $structure = new Structures();
         $form = $this->createForm(StructuresType::class, $structure);
         $form->handleRequest($request);
 
-
         if ($form->isSubmitted() && $form->isValid()) {
-            
             //on prend toute la partie qui est dans user
             $user = $form->get('users') -> getData();
             // dd($user -> getRolesUsers() -> getName());
             $r[]='ROLE_STRUCTURE';
             $user->setRoles($r);
-            $user->setRolesUsers($rolesUsersRepository->find(3));
-            $entityManager->persist($form->get('users') -> getData());
+            $user->setRolesUsers($rolesUsersRepository->find(3));        
+
+            $structuresRepository->add($structure, true);
 
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
@@ -51,8 +51,7 @@ class StructuresController extends AbstractController
                     $user->getPassword(),
                 )
             );
-
-            $structuresRepository->add($structure, true);
+            $entityManager->persist($user);
 
             return $this->redirectToRoute('app_structures_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -83,7 +82,8 @@ class StructuresController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_structures_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Structures $structure, EntityManagerInterface $entityManager, RolesUsersRepository $rolesUsersRepository, StructuresRepository $structuresRepository, UserPasswordHasherInterface $userPasswordHasher): Response
+    // public function edit(Request $request, Structures $structure, EntityManagerInterface $entityManager, RolesUsersRepository $rolesUsersRepository, StructuresRepository $structuresRepository, UserPasswordHasherInterface $userPasswordHasher): Response
+    public function edit(Request $request, Structures $structure, StructuresRepository $structuresRepository, EntityManagerInterface $entityManager, RolesUsersRepository $rolesUsersRepository, UserPasswordHasherInterface $userPasswordHasher): Response
     {
         $form = $this->createForm(StructuresType::class, $structure);
         $form->handleRequest($request);
@@ -104,9 +104,15 @@ class StructuresController extends AbstractController
             )
         );
 
-           $entityManager->persist($form->get('users') -> getData());
+            $entityManager->persist($user);
 
             $structuresRepository->add($structure, true);
+
+                 // Gestion des modules
+                // on prend les modules cochés dans le formulaire
+                $modules = $form->get('modules')->getData();
+            
+                $structuresRepository->add($structure, true);
 
             return $this->redirectToRoute('app_structures_index', [], Response::HTTP_SEE_OTHER);
         }

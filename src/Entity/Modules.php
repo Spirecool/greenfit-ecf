@@ -28,7 +28,7 @@ class Modules
     #[ORM\ManyToMany(targetEntity: Partners::class, mappedBy: 'modules')]
     private Collection $partners;
 
-    #[ORM\ManyToMany(targetEntity: Structures::class, inversedBy: 'modules')]
+    #[ORM\ManyToMany(targetEntity: Structures::class, mappedBy: 'modules')]
     private Collection $structures;
 
     public function __construct()

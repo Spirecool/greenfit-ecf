@@ -30,7 +30,7 @@ class Structures
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Users $users = null;
 
-    #[ORM\ManyToMany(targetEntity: Modules::class, mappedBy: 'structures')]
+    #[ORM\ManyToMany(targetEntity: Modules::class, inversedBy: 'structures')]
     private Collection $modules;
 
     public function __construct()

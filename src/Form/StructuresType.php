@@ -32,8 +32,7 @@ class StructuresType extends AbstractType
                 'data_class' => Users::class, 
                 'label' => 'Données du gérant',
             ]) 
-            ->add('manager_name')
-
+          
             ->add('modules', EntityType::class, [
                 'required' => true,
                 'label' => 'Modules activés pour la structure',
