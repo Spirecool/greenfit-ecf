@@ -645,3 +645,12 @@ footer {
   bottom: 0; */
   width: 100%;
 }
+
+
+/******************/
+/* CREATION FORMS */
+/******************/
+
+textarea, label {
+  width: 100%;
+}
