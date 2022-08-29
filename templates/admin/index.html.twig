@@ -12,7 +12,7 @@
 {# images sur 2 lignes de 2 colonnes #}
 <div>
 
-      <h2 class="text-center pt-5 pb-5">Bienvenue {{ app.user ? app.user.firstname : ''}}</h2>
+      <h1 class="text-center pt-5 pb-5">Bienvenue <span class="heading-color">{{ app.user ? app.user.firstname : ''}}</a></h1>
 
 <!-- CARDS -->
 
@@ -93,7 +93,23 @@
 </div>
 </a>
 {% endif %}
+
 {% else %}
-  <div class="d-flex justify-content-center"> <img src="/images/homepage-bg.jpg" alt="Image de la page d'accueil" class=""> </div>
+
+{# Page d'accueil avant connexion #}
+
+<div class="container col-xxl-10 px-4 py-1 ">
+            <div class="row align-items-center g-5 py-5">
+                <div class="col-10 col-lg-6">
+                    <img src="/images/homepage-bg.jpg"
+                        class="d-block mx-lg-auto img-fluid " alt="femmes faisant du fitness" width="700" height="500"
+                        loading="lazy">
+                </div>
+                <div class="col-lg-6">
+                   <p class="pb-5 text-right"> Veuillez vous connecter ci-dessous pour accéder aux services de Green FIT</p>
+                    <button><a href="/login" class="login-button">SE CONNECTER</a></button>
+                </div>
+            </div>
+        </div>
 {% endif %}
 {% endblock %}
