@@ -17,6 +17,8 @@
 <!-- CARDS -->
 
 {% if app.user %}
+
+{% if "ROLE_ADMIN" in app.user.roles %}
 <div class="cards-list">
 <a href="/users/">  
 <div class="card-home">
@@ -27,15 +29,19 @@
   </div>
 </div>
 </a>
+{% endif %}
+
+{% if "ROLE_ADMIN" in app.user.roles %}
 <a href="/partners/">
   <div class="card-home">
-  <div class="card-image"> <img src="/images/cards/card-3.jpg" />
+  <div class="card-image"> <img src="/images/cards/card-2.jpg" />
   </div>
   <div class="card-title title-white">
     <p>Partenaires</p>
   </div>
 </div>
 </a>
+{% endif %}
 
 {% if "ROLE_ADMIN" in app.user.roles %}
 <a href="/structures/">
@@ -48,8 +54,10 @@
 </div>
 </a>
 {% endif %}
+
+{# {% if is_granted("ROLE_STRUCTURE") or is_granted("ROLE_PARTNER") in app.user.roles %} #}
 {% if "ROLE_STRUCTURE" in app.user.roles %}
-<a href="{{path('app_structures_show',{id:app.user.getStructures()})}}">
+<a href="{{path('app_structures_show',{id:app.user.structure})}}">
 <div class="card-home">
   <div class="card-image"> <img src="/images/cards/card-3.jpg" /> 
   </div>
@@ -59,6 +67,20 @@
 </div>
 </a>
 {% endif %}
+
+{# 
+{% if "ROLE_PARTNER" in app.user.roles %}
+<a href="{{path('app_structures_show',{id:app.user.structure})}}">
+<div class="card-home">
+  <div class="card-image"> <img src="/images/cards/card-3.jpg" /> 
+  </div>
+  <div class="card-title title-white">
+    <p>Structures</p>
+  </div>
+</div>
+</a>
+{% endif %} #}
+
 {% if "ROLE_ADMIN" in app.user.roles %}
 <a href="/modules/">
 <div class="card-home">

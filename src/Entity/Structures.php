@@ -27,11 +27,11 @@ class Structures
     #[ORM\ManyToOne(inversedBy: 'structures')]
     private ?Partners $partners = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Users $users = null;
-
     #[ORM\ManyToMany(targetEntity: Modules::class, inversedBy: 'structures')]
     private Collection $modules;
+
+    #[ORM\OneToOne(mappedBy: 'structure', cascade: ['persist', 'remove'])]
+    private ?Users $users = null;
 
     public function __construct()
     {
@@ -91,17 +91,7 @@ class Structures
         return $this;
     }
 
-    public function getUsers(): ?Users
-    {
-        return $this->users;
-    }
 
-    public function setUsers(?Users $users): self
-    {
-        $this->users = $users;
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, Modules>
@@ -132,5 +122,27 @@ class Structures
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getUsers(): ?Users
+    {
+        return $this->users;
+    }
+
+    public function setUsers(?Users $users): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($users === null && $this->users !== null) {
+            $this->users->setStructure(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($users !== null && $users->getStructure() !== $this) {
+            $users->setStructure($this);
+        }
+
+        $this->users = $users;
+
+        return $this;
     }
 }

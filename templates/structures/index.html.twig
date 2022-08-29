@@ -22,7 +22,7 @@
         </thead>
         <tbody>
         {% for structure in structures %}
-            <tr>
+            {# <tr>{% if personaldata is defined %} #}
                 <td>{{ structure.name }}</td>
                 <td>{{ structure.isActive ? '<div class="on">Activé</div>' : '<div class="off">Désactivé</div>' }}</td>
                 <td>{{ structure.partners ? structure.partners.name : '' }}</td>
@@ -37,6 +37,7 @@
                 </td>
           
                 <td>{{ structure.users.lastname }}</td>
+                 {# {% endif %} #}
                 {# <td>
                     <a href="{{ path('app_structures_show', {'id': structure.id}) }}">Voir</a>
                     <a href="{{ path('app_structures_edit', {'id': structure.id}) }}">Modifier</a>

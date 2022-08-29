@@ -21,14 +21,14 @@ class Partners
     #[ORM\Column]
     private ?bool $is_active = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Users $users = null;
-
     #[ORM\OneToMany(mappedBy: 'partners', targetEntity: Structures::class)]
     private Collection $structures;
 
     #[ORM\ManyToMany(targetEntity: Modules::class, inversedBy: 'partners')]
     private Collection $modules;
+
+    #[ORM\OneToOne(mappedBy: 'partner', cascade: ['persist', 'remove'])]
+    private ?Users $users = null;
 
     public function __construct()
     {
@@ -61,18 +61,6 @@ class Partners
     public function setIsActive(bool $is_active): self
     {
         $this->is_active = $is_active;
-
-        return $this;
-    }
-
-    public function getUsers(): ?Users
-    {
-        return $this->users;
-    }
-
-    public function setUsers(?Users $users): self
-    {
-        $this->users = $users;
 
         return $this;
     }
@@ -136,5 +124,27 @@ class Partners
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getUsers(): ?Users
+    {
+        return $this->users;
+    }
+
+    public function setUsers(?Users $users): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($users === null && $this->users !== null) {
+            $this->users->setPartner(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($users !== null && $users->getPartner() !== $this) {
+            $users->setPartner($this);
+        }
+
+        $this->users = $users;
+
+        return $this;
     }
 }

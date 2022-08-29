@@ -45,6 +45,12 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 100)]
     private ?string $city = null;
 
+    #[ORM\OneToOne(inversedBy: 'users', cascade: ['persist', 'remove'])]
+    private ?Structures $structure = null;
+
+    #[ORM\OneToOne(inversedBy: 'users', cascade: ['persist', 'remove'])]
+    private ?Partners $partner = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -183,6 +189,30 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCity(string $city): self
     {
         $this->city = $city;
+
+        return $this;
+    }
+
+    public function getStructure(): ?Structures
+    {
+        return $this->structure;
+    }
+
+    public function setStructure(?Structures $structure): self
+    {
+        $this->structure = $structure;
+
+        return $this;
+    }
+
+    public function getPartner(): ?Partners
+    {
+        return $this->partner;
+    }
+
+    public function setPartner(?Partners $partner): self
+    {
+        $this->partner = $partner;
 
         return $this;
     }
