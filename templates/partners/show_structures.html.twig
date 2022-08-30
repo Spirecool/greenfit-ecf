@@ -12,7 +12,7 @@
                 <td>
                     {% if partner.Structures %}
                     {% for structure in partner.Structures %}
-                    {{structure.name}}
+                    <a href={{path('app_structures_show', {id: structure.id})}}>{{structure.name}}</a>
                     {% endfor %}
                     {% endif %}
                 </td>

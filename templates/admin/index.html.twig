@@ -57,7 +57,20 @@
 
 {# {% if is_granted("ROLE_STRUCTURE") or is_granted("ROLE_PARTNER") in app.user.roles %} #}
 {% if "ROLE_STRUCTURE" in app.user.roles %}
-<a href="{{path('app_structures_show',{id:app.user.structure})}}">
+<a href="{{path('app_structures_show',{id:app.user.structure.id})}}">
+<div class="card-home">
+  <div class="card-image"> <img src="/images/cards/card-3.jpg"/> 
+  </div>
+  <div class="card-title title-white">
+    <p>Structures</p>
+  </div>
+</div>
+</a>
+{% endif %}
+
+
+{% if "ROLE_PARTNER" in app.user.roles %}
+<a href="{{path('app_partners_structures',{id:app.user.partner.id})}}">
 <div class="card-home">
   <div class="card-image"> <img src="/images/cards/card-3.jpg" /> 
   </div>
@@ -67,19 +80,6 @@
 </div>
 </a>
 {% endif %}
-
-{# 
-{% if "ROLE_PARTNER" in app.user.roles %}
-<a href="{{path('app_structures_show',{id:app.user.structure})}}">
-<div class="card-home">
-  <div class="card-image"> <img src="/images/cards/card-3.jpg" /> 
-  </div>
-  <div class="card-title title-white">
-    <p>Structures</p>
-  </div>
-</div>
-</a>
-{% endif %} #}
 
 {% if "ROLE_ADMIN" in app.user.roles %}
 <a href="/modules/">
