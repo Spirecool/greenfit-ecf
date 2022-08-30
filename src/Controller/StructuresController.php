@@ -25,7 +25,6 @@ class StructuresController extends AbstractController
             'structures' => $structuresRepository->findAll(),
         ]);
     }
-
     #[Route('/new', name: 'app_structures_new', methods: ['GET', 'POST'])]
 
     public function new(Request $request, StructuresRepository $structuresRepository, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher, RolesUsersRepository $rolesUsersRepository): Response

@@ -521,6 +521,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
   border:none;
   text-transform: uppercase;
   border-radius: 8px;
+  padding: 6px 12px;
 }
 
 .login-button:hover {
@@ -655,4 +656,37 @@ footer {
 
 textarea, label {
   width: 100%;
+}
+
+input {
+  width: 100%;
+}
+
+@media all and (min-width: 700px) {
+  input {
+    width: 50%;
+  }
+}
+
+/************************/
+/* PARTNER PAGE BUTTONS */
+/************************/
+
+
+ .box{
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  padding: 10px;
+  transition: all linear 200ms;
+}
+.box:hover{
+  transform: scale(1.05);
+  transition: all linear 200ms;
+  z-index: 1;
+  box-shadow: 1px 1px 10px rgba(0,0,0,.3);
+  cursor: pointer;
+} 
+
+.box-button {
+  color: red;
 }

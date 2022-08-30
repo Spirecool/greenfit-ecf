@@ -3,22 +3,55 @@
 {% block title %}Fiche partenaire {% endblock %}
 
 {% block body %}
-    <h1>Fiche Partenaire : {{ partner.name }}</h1>
+    <h1 class="py-5">Fiche Partenaire de <span class="heading-color">{{ partner.name }}</span></h1>
 
-    <table class="table">
+    {# <table class="table">
         <tbody>
             <tr>
                 <th>Structures</th>
                 <td>
                     {% if partner.Structures %}
                     {% for structure in partner.Structures %}
-                    <a href={{path('app_structures_show', {id: structure.id})}}>{{structure.name}}</a>
+                    
+                    <a href={{path('app_structures_show', {id: structure.id})}}>{{structure.name}}</a><br>
                     {% endfor %}
                     {% endif %}
                 </td>
             </tr>    
         </tbody>
-    </table>
+    </table> #}
+
+<div class="container">
+    <div class="row text-center py-5">
+        {% if partner.Structures %}
+            {% for structure in partner.Structures %}
+                <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0 ">
+                    <div class="card bg-light rounded align-items-center p-4 box">
+                        
+                        <div class="card-body">
+
+                            <div class="card-title pb-4">
+                                <h3>Structure : {{structure.name}}</h3>
+                            </div>
+                            <div class="card-text mb-1">
+                                <a href={{path('app_structures_show', {id: structure.id})}} class="login-button">Accédez à {{structure.name}}</a><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+     
+       {# <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{structure.name}}</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href={{path('app_structures_show', {id: structure.id})}} class="btn btn-primary">{{structure.name}}</a><br>
+            </div>
+        </div> #}
+            {% endfor %}
+        {% endif %}
+    </div>      
+</div>
+
 
     {# <div>
         <button class="btn modify-button mt-4"><a href="{{ path('app_partners_edit', {'id': partner.id}) }}">Modifier</a></button>

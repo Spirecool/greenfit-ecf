@@ -3,14 +3,14 @@
 {% block title %}Fiche Structure{% endblock %}
 
 {% block body %}
-    <h1>Fiche Structure : {{structure.name}}</h1>
+    <h1 class="py-5">Fiche Structure de <span class="heading-color"> {{structure.name}} </span></h1>
 
     <table class="table">
         <tbody>
            
             <tr>
                 <th>Est activée</th>
-                <td>{{ structure.isActive ? 'Yes' : 'No' }}</td>
+                <td>{{ structure.isActive ? 'Oui' : 'Non' }}</td>
             </tr>
             <tr>
                 <th>Nom du gérant</th>
@@ -21,18 +21,22 @@
                 <td>{{ structure.users.firstname }}</td>
             </tr>
              <tr>
+             
                 <th>Modules activés</th>
                 <td>
                     {% if structure.Modules %}
                     {% for module in structure.Modules %}
-                    {{module}}
+                    {{module}}<br>
+                    
                     {% endfor %}
                     {% endif %}
                 </td>
             </tr>
+            
         </tbody>
     </table>
 
+{% if is_granted("ROLE_ADMIN") %}
 <div>
     <button class="btn modify-button mt-4"><a href="{{ path('app_structures_edit', {'id': structure.id}) }}">Modifier</a></button>
 </div>
@@ -41,4 +45,9 @@
     <a href="{{ path('app_structures_index') }}">Revenir à la liste</a>
 </div>
     {{ include('structures/_delete_form.html.twig') }}
+{% endif %}
+
+
+
+
 {% endblock %}
