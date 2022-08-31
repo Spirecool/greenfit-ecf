@@ -217,9 +217,7 @@ letter-spacing: -4px;
            }
 }
 
-/* #home-icon {
-  color: red;
-} */
+
 @media screen and (max-width: 455px) {
   .header-icon { 
             display: none;
@@ -244,6 +242,12 @@ letter-spacing: -4px;
   transition-property: width;
   overflow-y: auto;
 }
+
+/* @media screen and (max-width: 1750px) {
+  .wrapper .sidebar { 
+            display: none;
+           }
+} */
 
 .wrapper .sidebar .sidebar-menu {
   overflow: hidden;
@@ -289,6 +293,12 @@ letter-spacing: -4px;
   margin-top: 3px;
 }
 
+
+/* @media screen and (max-width: 1750px) {
+  .sidebar-btn { 
+            display: none;
+           }
+} */
 
 /*************/
 /* CONTAINER */
@@ -624,19 +634,21 @@ footer {
 /* CREATION FORMS */
 /******************/
 
-textarea, label {
+/* textarea, label {
   width: 100%;
 }
 
 input {
   width: 100%;
+  margin-bottom: 16px;
+  padding: 6px 3px;
 }
 
 @media all and (min-width: 700px) {
   input {
-    width: 50%;
+    width: 25%;
   }
-}
+} */
 
 /************************/
 /* PARTNER PAGE BUTTONS */
@@ -660,5 +672,11 @@ input {
 .box-button {
   color: red;
 }
+
+
+
+
+
+
 
 

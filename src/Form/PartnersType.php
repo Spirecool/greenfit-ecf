@@ -30,7 +30,7 @@ class PartnersType extends AbstractType
             ])
             ->add('modules', EntityType::class, [
                 'required' => true,
-                'label' => 'Modules activés',
+                'label' => 'Modules activés pour le partenaire',
                 'class' => Modules::class,
                 'multiple' => true,
                 'expanded' => true,
