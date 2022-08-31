@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1 class="py-5">Liste des Modules</h1>
-
+<div class="table-responsive-xl mb-5 ">
     <table class="table">
         <thead>
             <tr>
@@ -45,7 +45,7 @@
         {% endfor %}
         </tbody>
     </table>
-    
+    </div>
     <a href="{{ path('app_modules_new') }}"><i class="fa-solid fa-plus green"></i> Créer un nouveau module</a>
 
 {% endblock %}
