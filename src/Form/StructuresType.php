@@ -40,8 +40,10 @@ class StructuresType extends AbstractType
                 'class' => Modules::class,
                 'multiple' => true,
                 'expanded' => true,
-            ])
+            ], )
 
+            
+          
             ->add('partners')
            
         ;
