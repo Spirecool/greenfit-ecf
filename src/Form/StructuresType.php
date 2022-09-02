@@ -17,12 +17,12 @@ class StructuresType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        
-            ->add('is_active', CheckboxType::class, [
-                'label_attr'    => [
-                'class' => 'checkbox-switch',
-                ],
-            ])
+            ->add('is_active')
+            // ->add('is_active', CheckboxType::class, [
+            //     'label_attr'    => [
+            //     'class' => 'checkbox-switch',
+            //     ],
+            // ])
             ->add('name', TextType::class, [
                 'required' => true,
                 'label' => 'Nom de la structure',
