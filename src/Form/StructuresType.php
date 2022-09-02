@@ -18,6 +18,10 @@ class StructuresType extends AbstractType
     {
         $builder
             ->add('is_active')
+            ->add('is_active', CheckboxType::class, [
+                'required' => true,
+                'label' => 'La structure est activée',
+            ])
             // ->add('is_active', CheckboxType::class, [
             //     'label_attr'    => [
             //     'class' => 'checkbox-switch',
