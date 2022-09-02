@@ -9,6 +9,8 @@ use App\Repository\PartnersRepository;
 use App\Repository\RolesUsersRepository;
 use App\Repository\StructuresRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,6 +20,8 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/structures')]
 class StructuresController extends AbstractController
 {
+    //Interdit l'affichage de l'index des structures à la structure connnectée
+    #[Security("is_granted('ROLE_ADMIN')")]
     #[Route('/', name: 'app_structures_index', methods: ['GET'])]
     public function index(StructuresRepository $structuresRepository): Response
     {
@@ -25,6 +29,9 @@ class StructuresController extends AbstractController
             'structures' => $structuresRepository->findAll(),
         ]);
     }
+
+    //Seulement l'admin peut créer une nouvelle structure
+    #[Security("is_granted('ROLE_ADMIN')")]
     #[Route('/new', name: 'app_structures_new', methods: ['GET', 'POST'])]
 
     public function new(Request $request, StructuresRepository $structuresRepository, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher, RolesUsersRepository $rolesUsersRepository): Response
@@ -61,6 +68,9 @@ class StructuresController extends AbstractController
         ]);
     }
 
+    // on bloque l'accès à la structure connectée, aux autres structures. Elle ne peut aller que sur sa structure
+  
+    #[Security("is_granted('ROLE_PARTNER')  or is_granted('ROLE_STRUCTURE') and user === structure.getUsers()")]
     #[Route('/{id}', name: 'app_structures_show', methods: ['GET'])]
     public function show(Structures $structure): Response
     {
@@ -79,11 +89,13 @@ class StructuresController extends AbstractController
             'modules' => $modules,
         ]);
     }
-
+    // on bloque l'accès à la structure connectée, à l'adition des autres structures qui ne lui appartiennent pas
+    #[Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_PARTNER') and user === structure.getUsers()")]
     #[Route('/{id}/edit', name: 'app_structures_edit', methods: ['GET', 'POST'])]
     // public function edit(Request $request, Structures $structure, EntityManagerInterface $entityManager, RolesUsersRepository $rolesUsersRepository, StructuresRepository $structuresRepository, UserPasswordHasherInterface $userPasswordHasher): Response
     public function edit(Request $request, Structures $structure, StructuresRepository $structuresRepository, EntityManagerInterface $entityManager, RolesUsersRepository $rolesUsersRepository, UserPasswordHasherInterface $userPasswordHasher): Response
     {
+     
         $form = $this->createForm(StructuresType::class, $structure);
         $form->handleRequest($request);
 
@@ -122,7 +134,8 @@ class StructuresController extends AbstractController
             'form' => $form,
         ]);
     }
-
+    
+    #[Security("is_granted('ROLE_ADMIN')")]
     #[Route('/{id}', name: 'app_structures_delete', methods: ['POST'])]
     public function delete(Request $request, Structures $structure, StructuresRepository $structuresRepository): Response
     {

@@ -8,6 +8,7 @@ use App\Form\PartnersType;
 use App\Repository\PartnersRepository;
 use App\Repository\RolesUsersRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,7 +18,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/partners')]
 class PartnersController extends AbstractController
-{
+{   
+    //Interdit l'affichage de l'index des partenaires au partenaire connecté
+    #[Security("is_granted('ROLE_ADMIN')")]
     #[Route('/', name: 'app_partners_index', methods: ['GET'])]
     public function index(PartnersRepository $partnersRepository): Response
     {
@@ -25,7 +28,8 @@ class PartnersController extends AbstractController
             'partners' => $partnersRepository->findAll(),
         ]);
     }
-
+    //Seulement l'admin peut créer un nouveau partenaire
+    #[Security("is_granted('ROLE_ADMIN')")]
     #[Route('/new', name: 'app_partners_new', methods: ['GET', 'POST'])]
     public function new(Request $request, PartnersRepository $partnersRepository, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher, RolesUsersRepository $rolesUsersRepository): Response
     {
@@ -72,6 +76,8 @@ class PartnersController extends AbstractController
 
     // Partners / Structures
 
+    // Interdit au partenaire connecté d'afficher la liste des structures associées aux autres partenaires, il ne verra que la sienne
+    #[Security("is_granted('ROLE_PARTNER') and user === partner.getUsers()")]
     #[Route('/structures/{id}', name: 'app_partners_structures', methods: ['GET'])]
     public function showPartners(Partners $partner): Response
     {
@@ -80,7 +86,7 @@ class PartnersController extends AbstractController
         ]);
     }
     
-
+    
     #[Route('/{id}/edit', name: 'app_partners_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Partners $partner, PartnersRepository $partnersRepository, EntityManagerInterface $entityManager, RolesUsersRepository $rolesUsersRepository, UserPasswordHasherInterface $userPasswordHasher): Response
     {
@@ -122,7 +128,8 @@ class PartnersController extends AbstractController
             'form' => $form,
         ]);
     }
-
+    
+    #[Security("is_granted('ROLE_ADMIN')")]
     #[Route('/{id}', name: 'app_partners_delete', methods: ['POST'])]
     public function delete(Request $request, Partners $partner, PartnersRepository $partnersRepository): Response
     {

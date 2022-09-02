@@ -58,6 +58,7 @@ security:
         - { path: ^/modules, roles: ROLE_ADMIN }
         - { path: ^/users, roles: ROLE_ADMIN }
         - { path: ^/partners, roles: [ROLE_ADMIN, ROLE_PARTNER] }
+        - { path: ^/structures, roles: [ROLE_ADMIN, ROLE_PARTNER, ROLE_STRUCTURE] }
         # - { path: ^/profile, roles: ROLE_USER }
         # - { path: ^/partners, roles: ROLE_PARTNER }
         # - { path: ^/structures, roles: ROLE_STRUCTURE } 
