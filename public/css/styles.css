@@ -398,15 +398,15 @@ form{
   border-radius: 6px;
   text-align: center;
   padding: 3px 8px;
-  max-width: 80%;
+  max-width: 100%;
 }
-.on, .off{ 
+.on{ 
   background-color: green;
 }
 
 .off { 
   background-color: red;
-  text-align: center;
+ 
 }
 
 
@@ -623,6 +623,22 @@ footer {
   width: 100%;
 }
 
+
+
+/******************/
+/* CREATION FORMS */
+/******************/
+
+
+
+input {
+  margin-bottom: 18px;
+}
+
+.control-label {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
 
 /******************/
 /* CREATION FORMS */

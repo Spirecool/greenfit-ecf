@@ -41,7 +41,7 @@ class PartnersType extends AbstractType
                 'expanded' => true,
             ])
             
-            ->add('modules')
+            // ->add('modules')
         ;
     }
 
