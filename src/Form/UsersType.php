@@ -4,9 +4,7 @@ namespace App\Form;
 
 use App\Entity\RolesUsers;
 use App\Entity\Users;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -15,8 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Validator\Constraints\Length;
 // use Symfony\Component\Validator\Constraints\Regex;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class UsersType extends AbstractType
 {
@@ -47,9 +44,6 @@ class UsersType extends AbstractType
                 'invalid_message' => 'Le mot de passe et la confirmation doivent être identiques',
                 'label' => false,
                 'required' => true,
-                // 'label_attr' => [
-                //     'class' => 'form-label mt-4'
-                // ],
              
                 'first_options' => [
                     'label' => 'Mot de passe',
@@ -63,6 +57,17 @@ class UsersType extends AbstractType
                     'attr' => [
                         'placeholder' => 'Merci de saisir à nouveau votre mot de passe'
                     ]
+                ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Veuillez entrer un mot de passe',
+                    ]),
+                    new Length([
+                        'min' => 6,
+                        'minMessage' => 'Votre mot de passe doit être au moins de {{ limit }} caractères',
+                        // max length allowed by Symfony for security reasons
+                        'max' => 4096,
+                    ]),
                 ],
             ])
 
