@@ -29,7 +29,7 @@ class PersonType extends AbstractType
                 'constraints' => [
                     new Length([
                         'min' => 8,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => 'Votre adresse mail doit contenir au moins {{ limit }} caractères',
                         'max' => 255,
                     ]),
                 ],
