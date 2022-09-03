@@ -89,7 +89,7 @@ class StructuresController extends AbstractController
             'modules' => $modules,
         ]);
     }
-    // on bloque l'accès à la structure connectée, à l'adition des autres structures qui ne lui appartiennent pas
+    // on bloque l'accès à la structure connectée, à la modification des autres structures qui ne lui appartiennent pas
     #[Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_PARTNER') and user === structure.getUsers()")]
     #[Route('/{id}/edit', name: 'app_structures_edit', methods: ['GET', 'POST'])]
     // public function edit(Request $request, Structures $structure, EntityManagerInterface $entityManager, RolesUsersRepository $rolesUsersRepository, StructuresRepository $structuresRepository, UserPasswordHasherInterface $userPasswordHasher): Response
@@ -134,7 +134,7 @@ class StructuresController extends AbstractController
             'form' => $form,
         ]);
     }
-    
+
     #[Security("is_granted('ROLE_ADMIN')")]
     #[Route('/{id}', name: 'app_structures_delete', methods: ['POST'])]
     public function delete(Request $request, Structures $structure, StructuresRepository $structuresRepository): Response

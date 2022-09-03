@@ -204,13 +204,11 @@ text-transform: uppercase;
   color: white
 }
 
-
-@media screen and (max-width: 4500px) {
+@media screen and (max-width: 600px) {
   #welcome-message { 
             display: none;
            }
 }
-
 
 @media screen and (max-width: 455px) {
   .header-icon { 
@@ -281,11 +279,11 @@ text-transform: uppercase;
   margin-right: 20px;
 }
 
-.wrapper .sidebar .sidebar-menu .item .menu-btn .drop-down{
+/* .wrapper .sidebar .sidebar-menu .item .menu-btn .drop-down{
   float: right;
   font-size: 12px;
   margin-top: 3px;
-}
+} */
 
 
 /* @media screen and (max-width: 1750px) {
@@ -382,11 +380,11 @@ form{
 
 .card-title{ font-weight:300; }
 
-
 .login-form{ 
 	width:330px;
 	margin:20px;
 }
+
 
 /*****************/
 /* TOGGLE BUTTON */
@@ -406,7 +404,6 @@ form{
 
 .off { 
   background-color: red;
- 
 }
 
 
