@@ -171,6 +171,11 @@ text-transform: uppercase;
   transition: 0.3s;
   transition-property: color;
 }
+@media screen and (max-width: 455px) {
+  .wrapper .header .header-menu .sidebar-btn { 
+  margin-left: 140px;
+  }
+}
 
 .wrapper .header .header-menu .sidebar-btn:hover {
   color:#5CC52A;
@@ -211,7 +216,7 @@ text-transform: uppercase;
 }
 
 @media screen and (max-width: 455px) {
-  .header-icon { 
+  .icon-home { 
             display: none;
            }
 }
