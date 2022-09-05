@@ -14,7 +14,7 @@ final class Version20220905125835 extends AbstractMigration
 {
     public function getDescription(): string
     {
-        return '';
+        return 'Création de l\'entité Contact';
     }
 
     public function up(Schema $schema): void
