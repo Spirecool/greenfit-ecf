@@ -40,10 +40,15 @@ font-family: 'Montserrat', sans-serif;
 text-align: center;
 }
 
+h1, h1 .heading-color {
+  font-size: clamp(1.3rem, 4vw, 3rem);
+}
+
 h1 .heading-color{
 color: #5CC52A;
 text-transform: uppercase;
 }
+
 
 
 /****************/
@@ -81,12 +86,17 @@ text-transform: uppercase;
   padding: 6px 12px;
 }
 
+@media screen and (max-width: 455px) {
+  .login-button { 
+      font-size: 14px;
+  }
+}
+
 .login-button:hover {
   background-color: white;
   color: #5CC52A;
   text-transform: uppercase;
-  transition: 0.4s;
-  border: 0.25px solid black
+  transition: 0.3s;
 }
 
 
@@ -386,7 +396,7 @@ form{
 .card-title{ font-weight:300; }
 
 .login-form{ 
-	width:330px;
+  width:330px;
 	margin:20px;
 }
 
@@ -543,7 +553,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
 	background: inherit;
 	z-index: -1;
 	inset: 0;
-	filter: blur(1.4rem);
+	filter: blur(1.6rem);
 	margin: -1.5rem;
 }
 
