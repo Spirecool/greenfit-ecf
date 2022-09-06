@@ -19,8 +19,3 @@ new Typewriter(adminText, {
 .typeString('<span style="color:#81a1ba; font-weight: 600">Modules<span>')
 .pauseFor(5000)
 .start()
-
-techniciens
-partenaires
-structures
-modules 

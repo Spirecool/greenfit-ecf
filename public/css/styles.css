@@ -6,17 +6,28 @@
   --bgsize:21px 21px;
 }
 
-body {
-  background-image: var(--bgimage);
-  background-size: var(--bgsize);
-  background-color: var(--fond);
+
+:root {
+  --primary-color: #edf2fc;
+  --secondary-color: #212121;
+
 }
 
+.dark-theme {
+  --primary-color: #212121;
+  --secondary-color: #edf2fc;
+}
 
-
-/* .sidebar {
-  background-color: #f1f1f1;
+body {
+  background-color: var(--primary-color);
+  background-image: var(--bgimage);
+  background-size: var(--bgsize);
+}
+/* body {
+  background-image: var(--bgimage);
+  background-size: var(--bgsize);
 } */
+
 
 /****************/
 /* GOOGLE FONTS */
@@ -48,8 +59,8 @@ a {
 }
 
 a:hover {
-color: var(--green);
-transition: 0.2s;
+  color: black;
+  transition: 0.4s;
 }
 
 /* body {
@@ -61,15 +72,110 @@ font-family: 'Montserrat', sans-serif;
 text-align: center;
 }
 
-h1, h1 .heading-color {
-  font-size: clamp(1.3rem, 4vw, 3rem);
+@media screen and (max-width: 455px) {
+  h2 { 
+      font-size: 18px;
+  }
 }
+
+
+/******************/
+/* USERS HOMEPAGE */
+/******************/
+
+
 
 h1 .heading-color{
 color: var(--green);
 text-transform: uppercase;
+font-size: clamp(1.3rem, 4vw, 3rem);
 }
 
+h1 {
+  animation: h1-apparition 0.8s ease-out;
+}
+
+@keyframes h1-apparition {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+
+/**********************/
+/*HOMEPAGE ADMIN CARDS*/
+/**********************/
+
+
+.cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card-home {
+  margin: 30px auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 30px;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.card-home .card-image {
+  width: inherit;
+  height: inherit;
+  border-radius: 30px;
+}
+
+.card-home .card-image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 30px;
+  object-fit: cover;
+}
+
+.card-home .card-title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size:24px;
+  margin-top: -80px;
+  height: 40px;
+}
+
+.card-home .card-title p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: white;
+
+}
+.card-home:hover {
+  transform: scale(1.1, 1.1);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.title-white {
+  text-transform: uppercase;
+  color: white;  
+}
+
+@media all and (max-width: 500px) {
+  .card-list {
+    flex-direction: column;
+  }
+}
 
 /**************/
 /* DARK MODE  */
@@ -110,6 +216,7 @@ th, td, p, h1, h2,  #icon, label {
 /* BUTTONS */
 /***********/
 
+
 .login-button {
   background-color: var(--green);
   color: #fff;
@@ -131,7 +238,6 @@ th, td, p, h1, h2,  #icon, label {
   text-transform: uppercase;
   transition: 0.3s;
 }
-
 
 .save {
   background-color: var(--green);
@@ -333,11 +439,6 @@ th, td, p, h1, h2,  #icon, label {
   margin-right: 20px;
 }
 
-/* .wrapper .sidebar .sidebar-menu .item .menu-btn .drop-down{
-  float: right;
-  font-size: 12px;
-  margin-top: 3px;
-} */
 
 
 /* @media screen and (max-width: 1750px) {
@@ -356,16 +457,15 @@ th, td, p, h1, h2,  #icon, label {
   /* width: (100% - 250px);
   margin-left: 250px; */
   /* padding: 15px; */
-  /* background: url(background-admin-console.jpg) no-repeat; */
-  background-size: cover;
-  /* height: 100vh; */
-  /* height: 100%; */
+ /* height: 100%; */
   transition: 0.3s;
 }
+
 
 /********************/
 /* COLLAPSE SIDEBAR */
 /********************/
+
 
 .wrapper.collapse_menu .sidebar {
   width: 60px;
@@ -386,6 +486,7 @@ th, td, p, h1, h2,  #icon, label {
 /*************/
 /* CONTENT */
 /*************/
+
 
 .wrapper .main-container .content {
   /* background: red; */
@@ -436,7 +537,7 @@ form{
   max-width: 100%;
 }
 .on{ 
-  background-color: var(--green);
+  background-color: green;
 }
 
 .off { 
@@ -454,86 +555,6 @@ th {
   font-weight: bold;
   padding-bottom: 18px !important
 }
-
-
-/* SEARCH BAR  */
-
-
-
-/**********************/
-/*HOMEPAGE ADMIN CARDS*/
-/**********************/
-
-
-.cards-list {
-  z-index: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.card-home {
-  margin: 30px auto;
-  width: 200px;
-  height: 200px;
-  border-radius: 30px;
-box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
-  cursor: pointer;
-  transition: 0.4s;
-}
-
-.card-home .card-image {
-  width: inherit;
-  height: inherit;
-  border-radius: 30px;
-}
-
-.card-home .card-image img {
-  width: inherit;
-  height: inherit;
-  border-radius: 30px;
-  object-fit: cover;
-}
-
-.card-home .card-title {
-  text-align: center;
-  border-radius: 0px 0px 40px 40px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-size:24px;
-  margin-top: -80px;
-  height: 40px;
-}
-
-.card-home .card-title p {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-  color: white;
-
-}
-.card-home:hover {
-  transform: scale(1.1, 1.1);
-  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
-    -5px -5px 30px 15px rgba(0,0,0,0.22);
-}
-
-.title-white {
-  text-transform: uppercase;
-  color: white;  
-}
-
-/* .title-black {
-  color: black;
-} */
-
-@media all and (max-width: 500px) {
-  .card-list {
-    flex-direction: column;
-  }
-}
-
 
 /**************/
 /* LOGIN PAGE */
@@ -651,6 +672,10 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
   }
 }
 
+/**********/
+/* FOOTER */
+/**********/
+
 
 footer {
   /* position: relative;
@@ -665,7 +690,6 @@ footer {
 /******************/
 
 
-
 input {
   margin-bottom: 18px;
 }
@@ -674,6 +698,7 @@ input {
   margin-bottom: 10px;
   font-weight: bold;
 }
+
 
 /******************/
 /* CREATION FORMS */
@@ -695,9 +720,10 @@ input {
   }
 } */
 
-/************************/
+
+/**********************/
 /* PARTNER PAGE CARDS */
-/************************/
+/**********************/
 
 
  .box{
@@ -719,9 +745,7 @@ input {
 }
 
 
-
-/* #admin-type-writer {
-  color: red;
-} */
-
-
+#icon {
+  width: 30px;
+  cursor: pointer;
+}

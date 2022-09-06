@@ -8,6 +8,7 @@
             </a>
 
              {% if  is_granted('ROLE_ADMIN') %}
+             
             <div class="sidebar-btn">
                 <i class="fa-solid fa-bars"></i>
             </div>
@@ -18,7 +19,11 @@
           {% if app.user %}
             <li class="text-light pt-2" id="welcome-message">Bienvenue {{ app.user.firstname}}</li>
           {% endif %}
+          
             {# <li class="header-icon icon-home"><a href="/"><i class="fa fa-home"></i></a></li> #}
+            
+            {# Dark Mode Icon #}
+            <img src="/images/moon.png" id="icon">
             <li class="header-icon icon-mail"><a href="/contact"><i class="fa-regular fa-envelope"></i></a></li>
           {% if app.user %}
             <li class="header-icon"><a href="/logout" class="logout" ><i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
@@ -29,4 +34,4 @@
     </div>
       </div>
     </div>
-    
+         <script type="text/javascript" src="{{ asset('js/darkmode2.js') }}"></script>
