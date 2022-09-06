@@ -1,3 +1,29 @@
+:root {
+  --green: #5CC52A; 
+  --police: #333;
+  --fond: rgb(245, 245, 245);
+  --bgimage:repeating-radial-gradient(circle at center center, transparent 0px, transparent 13px,rgba(0,0,0,0.03) 13px, rgba(0,0,0,0.03) 24px,transparent 24px, transparent 62px,rgba(0,0,0,0.03) 62px, rgba(0,0,0,0.03) 96px),repeating-radial-gradient(circle at center center, rgb(255,255,255) 0px, rgb(255,255,255) 14px,rgb(255,255,255) 14px, rgb(255,255,255) 18px,rgb(255,255,255) 18px, rgb(255,255,255) 28px,rgb(255,255,255) 28px, rgb(255,255,255) 32px);
+  --bgsize:21px 21px;
+}
+
+body {
+  background-image: var(--bgimage);
+  background-size: var(--bgsize);
+  background-color: var(--fond);
+}
+
+th, td, p, h1, h2,  #icon, label {
+  color: var(--police);
+}
+
+.wrapper .header .header-menu ul li a {
+  color: var(--ecriture)
+}
+
+.sidebar {
+  background-color: #f1f1f1;
+}
+
 /****************/
 /* GOOGLE FONTS */
 /****************/
@@ -24,16 +50,17 @@
 
 a {
   text-decoration: none;
-  color: #5CC52A;
+  color: var(--green);
 }
 
 a:hover {
-color: #5CC52A;
-transition: 0.2s;}
-
-body {
-  background-image: repeating-radial-gradient(circle at center center, transparent 0px, transparent 13px,rgba(0,0,0,0.03) 13px, rgba(0,0,0,0.03) 24px,transparent 24px, transparent 62px,rgba(0,0,0,0.03) 62px, rgba(0,0,0,0.03) 96px),repeating-radial-gradient(circle at center center, rgb(255,255,255) 0px, rgb(255,255,255) 14px,rgb(255,255,255) 14px, rgb(255,255,255) 18px,rgb(255,255,255) 18px, rgb(255,255,255) 28px,rgb(255,255,255) 28px, rgb(255,255,255) 32px); background-size: 21px 21px;
+color: var(--green);
+transition: 0.2s;
 }
+
+/* body {
+  background-image: repeating-radial-gradient(circle at center center, transparent 0px, transparent 13px,rgba(0,0,0,0.03) 13px, rgba(0,0,0,0.03) 24px,transparent 24px, transparent 62px,rgba(0,0,0,0.03) 62px, rgba(0,0,0,0.03) 96px),repeating-radial-gradient(circle at center center, rgb(255,255,255) 0px, rgb(255,255,255) 14px,rgb(255,255,255) 14px, rgb(255,255,255) 18px,rgb(255,255,255) 18px, rgb(255,255,255) 28px,rgb(255,255,255) 28px, rgb(255,255,255) 32px); background-size: 21px 21px;
+} */
 
 h1, h2 {
 font-family: 'Montserrat', sans-serif;
@@ -45,7 +72,7 @@ h1, h1 .heading-color {
 }
 
 h1 .heading-color{
-color: #5CC52A;
+color: var(--green);
 text-transform: uppercase;
 }
 
@@ -60,7 +87,7 @@ text-transform: uppercase;
   color: blue;
 }
 .green {
-  color: #5CC52A;
+  color: var(--green);
 }
 .white {
   color: #fff;
@@ -78,7 +105,7 @@ text-transform: uppercase;
 /***********/
 
 .login-button {
-  background-color: #5CC52A;
+  background-color: var(--green);
   color: #fff;
   border: none;
   text-transform: uppercase;
@@ -94,14 +121,14 @@ text-transform: uppercase;
 
 .login-button:hover {
   background-color: white;
-  color: #5CC52A;
+  color: var(--green);
   text-transform: uppercase;
   transition: 0.3s;
 }
 
 
 .save {
-  background-color: #5CC52A;
+  background-color: var(--green);
   color: white;
   border-radius: 6px;
 }
@@ -167,7 +194,7 @@ text-transform: uppercase;
 }
 
 .wrapper .header .header-menu .title span {
-  color: #5CC52A;
+  color: var(--green);
   text-transform: uppercase;
 }
 
@@ -188,7 +215,7 @@ text-transform: uppercase;
 }
 
 .wrapper .header .header-menu .sidebar-btn:hover {
-  color:#5CC52A;
+  color:var(--green);
 }
 
 .wrapper .header .header-menu ul {
@@ -211,7 +238,7 @@ text-transform: uppercase;
 }
 
 .wrapper .header .header-menu ul li a:hover {
-  background: #5CC52A;
+  background: var(--green);
 }
 
 .wrapper .header .header-menu ul li .logout:hover {
@@ -287,7 +314,7 @@ text-transform: uppercase;
 }
 
 .wrapper .sidebar .sidebar-menu .item .menu-btn:hover{
-  color: #5CC52A;
+  color: var(--green);
 }
 
 .wrapper .sidebar .sidebar-menu .item .menu-btn i{
@@ -336,24 +363,6 @@ text-transform: uppercase;
 .wrapper.collapse_menu .sidebar .profile p,
 .wrapper.collapse_menu .sidebar a span {
   display: none;
-}
-
-.wrapper.collapse_menu .sidebar .sidebar-menu .item .menu-btn {
-  font-size: 23px;
-}
-
-.wrapper.collapse_menu .sidebar .sidebar-menu .item .sub-menu i {
-  font-size: 18px;
-  padding-left: 3px;
-}
-.wrapper.collapse_menu .sidebar .sidebar-menu .item .sub-menu  {
-  font-size: 18px;
-  margin-left: 3px;
-}
-
-.wrapper.collapse_menu .sidebar .sidebar-menu .item .sub-menu i {
-  font-size: 18px;
-  padding-left: 3px;
 }
 
 .wrapper.collapse_menu .main-container {
@@ -415,7 +424,7 @@ form{
   max-width: 100%;
 }
 .on{ 
-  background-color: green;
+  background-color: var(--green);
 }
 
 .off { 
@@ -489,6 +498,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   letter-spacing: 1.2px;
+  color: white;
 
 }
 .card-home:hover {
@@ -582,7 +592,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
   width: 80px;
   height: 80px;
   border: 2px solid #f3f3f3;
-  border-top: 3px solid #5CC52A;
+  border-top: 3px solid var(--green);
   border-radius: 100%;
   position: absolute;
   top: 0;
@@ -695,8 +705,6 @@ input {
 .box-button {
   color: red;
 }
-
-
 
 
 
