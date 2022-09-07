@@ -22,6 +22,7 @@ body {
   background-color: var(--primary-color);
   background-image: var(--bgimage);
   background-size: var(--bgsize);
+  
 }
 /* body {
   background-image: var(--bgimage);
@@ -196,7 +197,7 @@ th, td, p, h1, h2,  #icon, label {
 
 
 .blue {
-  color: blue;
+  color: rgb(95, 136, 224);
 }
 .green {
   color: var(--green);
@@ -311,11 +312,27 @@ th, td, p, h1, h2,  #icon, label {
   }
 }
 
+@media screen and (max-width: 455px) {
+  .wrapper .header .header-menu { 
+  padding: 0 11px;
+  }
+}
+@media screen and (max-width: 455px) {
+  .title { 
+  margin-left: 30px;
+  }
+}
+
 .wrapper .header .header-menu .title span {
   color: var(--green);
   text-transform: uppercase;
 }
 
+@media screen and (max-width: 455px) {
+  .wrapper .header .header-menu .title { 
+  margin-left: 50px;
+  }
+}
 .wrapper .header .header-menu .sidebar-btn {
   color: #fff;
   position: absolute;
@@ -326,9 +343,10 @@ th, td, p, h1, h2,  #icon, label {
   transition: 0.3s;
   transition-property: color;
 }
+
 @media screen and (max-width: 455px) {
   .wrapper .header .header-menu .sidebar-btn { 
-  margin-left: 1px;
+  margin-left: 10px;
   }
 }
 
@@ -393,6 +411,7 @@ th, td, p, h1, h2,  #icon, label {
   transition: 0.3s;
   transition-property: width;
   overflow-y: auto;
+  color: var(--sidebar);
 }
 
 /* @media screen and (max-width: 1750px) {
@@ -748,4 +767,4 @@ input {
 #icon {
   width: 30px;
   cursor: pointer;
-}
+} 
