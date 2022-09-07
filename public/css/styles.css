@@ -382,17 +382,21 @@ th, td, p, h1, h2,  #icon, label {
   color: white
 }
 
+#welcome-message {
+  font-size:14px;
+}
+
 @media screen and (max-width: 600px) {
   #welcome-message { 
             display: none;
            }
 }
 
-@media screen and (max-width: 455px) {
+/* @media screen and (max-width: 455px) {
   .icon-home { 
             display: none;
            }
-}
+} */
 
 /* Dark Mode icon */
 
