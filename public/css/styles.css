@@ -602,6 +602,19 @@ th {
   padding-bottom: 18px !important
 }
 
+tr th, tr {
+  text-align: center;
+}
+
+/* tr {
+  text-align: center;
+} */
+
+@media screen and (max-width: 995px) {
+  tr th, tr  { 
+    text-align:start;
+           }
+}
 /**************/
 /* LOGIN PAGE */
 /**************/

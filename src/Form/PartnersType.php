@@ -31,8 +31,10 @@ class PartnersType extends AbstractType
     
             ->add('users', PersonType::class, [
                 'data_class' => Users::class,
-                'label' => 'Données du gérant',
+                'label' => 'DONNÉES DU GÉRANT',
             ])
+
+            
             ->add('modules', EntityType::class, [
                 'required' => true,
                 'label' => 'Modules activés pour le partenaire',
