@@ -31,7 +31,7 @@ class ContactType extends AbstractType
             ->add('message', TextareaType::class)
             ->add('submit', SubmitType::class, [
                 'attr' => [
-                    'class' => 'btn btn-dark mt-4'
+                    'class' => 'btn btn-outline-dark btn-lg px-5 mt-5 login-button'
                 ],
                 'label' => 'Envoyer mon formulaire'            
             ]);

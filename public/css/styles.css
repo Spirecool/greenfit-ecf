@@ -238,6 +238,7 @@ th, td, p, h1, h2,  #icon, label {
   color: var(--green);
   text-transform: uppercase;
   transition: 0.3s;
+  border: 1px solid var(--green);;
 }
 
 .save {
@@ -477,9 +478,14 @@ th, td, p, h1, h2,  #icon, label {
 
 .wrapper .sidebar .sidebar-menu .item .menu-btn i{
   margin-right: 20px;
+  /* color: red; */
 }
 
-
+.wrapper .sidebar .sidebar-menu .item .menu-btn span{
+  position:absolute;
+  left:75px;
+  color:var(--secondary-color);
+}
 
 /* @media screen and (max-width: 1750px) {
   .sidebar-btn { 
@@ -783,5 +789,4 @@ input {
 .box-button {
   color: red;
 }
-
 
