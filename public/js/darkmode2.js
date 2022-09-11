@@ -1,4 +1,3 @@
-
 const icon = document.getElementById("icon");
 
 if(localStorage.getItem("theme") == null) {
@@ -24,7 +23,6 @@ if(localData == "light") {
 		document.documentElement.style.setProperty('--bgimage','none');
 		document.body.classList.add("dark-theme");
 	}
-
 
 icon.onclick = function() {
 	document.body.classList.toggle("dark-theme");
