@@ -50,7 +50,6 @@ class ContactController extends AbstractController
                     'success',
                     'Votre message a bien été envoyé !'
                 );
-            
             }
 
 

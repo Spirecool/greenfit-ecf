@@ -3,17 +3,18 @@
 {% block title %}Liste de tous les utilisateurs{% endblock %}
 
 {% block body %}
+ <script type="text/javascript" src="{{ asset('js/darkmode2.js') }}"></script>
+    <h1 class="my-5">Liste des <span class="heading-color">Techniciens</span></h1>
 
-    <h1 class="my-5">Liste de tous les <span class="heading-color">utilisateurs</span></h1>
 
-    <div>
+    {# <div>
         <div class="search pb-5">
             <i id="icon" class="fas fa-search icon"></i> 
             <input id='searchid'></input>
         </div>
-    </div>
+    </div> #}
     
-<div class="table-responsive-xl mb-5 ">
+<div class="table-responsive-xl mt-5 ">
     <table class="table table-hover">
         <thead>
             <tr>
@@ -32,10 +33,12 @@
         </thead>
         <tbody>
         {% for user in users%}
-            <tr>
+            <tr class=" d-none{{ user.getRolesUsers() == ('["ROLE_ADMIN"]') ? : '' }}" >
+            {# <tr class=" d-none{{ user.getRolesUsers() == ('["ROLE_ADMIN"]') ? 'myStyle' : '' }}"   id="blue" > #}
                 <td>{{ user.id }}</td>
                 <td>{{ user.email }}</td>
-                <td>{{ user.getRolesUsers() ? user.getRolesUsers() : '' }}</td>
+                <td>{{ user.getRolesUsers()  }}</td>
+                {# <td>{{ user.getRolesUsers()   ? user.getRolesUsers() : '' }}</td> #}
                 <td>{{ user.lastname }}</td>
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.address }}</td>
@@ -64,7 +67,8 @@
     </table>
 </div>
 
-<div>
+<div class="my-5">
     <a href="{{ path('app_users_new') }}"><i class="fa-solid fa-plus green"></i> Créer un nouveau technicien</a>
 </div>
+     <script type="text/javascript" src="{{ asset('js/admin.js') }}"></script>
 {% endblock %}
