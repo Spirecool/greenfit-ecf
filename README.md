@@ -104,7 +104,7 @@ Se connecter à mySQL en ligne de commande :
 mysql -u root -p 
 ```
 
-Se connecter à la base Hypnos :
+Se connecter à la base greenfit-ecf :
 ```bash
 USE greenfit-ecf;
 ```
@@ -120,47 +120,61 @@ symfony serve
 
 ### Déployer en local
 
-Installer Xampp :
+#### Installer Xampp :
 https://www.apachefriends.org/fr/download.html
 
+#### Créer un répertoire
 Puis créer un répertoire Apps dans c:/xampp/ avec un terminal
 ```bash
 c:/xampp/
 mkdir Apps
 ```
 
+#### Vérifier les prérequis techniques
 Pour vérifier si vous avez toutes les conditions nécessaires à l’installation de Symfony :
 
 ```bash
 composer require symfony/requirements-checker
 ```
 
+#### Clôner le projet
 Clonez le projet dans un répertoire dans le répertoire Apps de XAMPP et créez votre base de données grâce au fichier SQL fourni. 
 
 ```bash
 git clone https://github.com/Spirecool/greenfit-ecf.git
 ```
 
-Lancer le serveur avec PHP et MySql  :
-Pour tester le projet en local, lancez xampp, mamp, ou le logiciel que vous utilisez sur votre machine, activez Apache et MySQL.
+#### Lancer le serveur avec PHP et MySql  :
 
-####Insérer le fichier SQL dans la base de données :
+Pour tester le projet en local, lancez xampp, mamp, ou le logiciel que vous utilisez sur votre machine, lancez Apache et MySQL.
 
-Utilisez le fichier greenfit-ecf.sql situé dans le dossier Annexes du projet pour créer votre base de données. Attention, pour pouvoir utiliser les différents comptes utilisateur, pensez à changer les mots de passe et à les encoder avant de lancer les requêtes. 
+#### Insérer le fichier SQL dans la base de données :
+
+Utilisez le fichier greenfit-ecf.sql situé dans le dossier Annexes du projet pour créer votre base de données. Attention, pour pouvoir utiliser les différents comptes utilisateur, pensez à changer les mots de passe et à les encoder avant de lancer les requêtes.
+
+### Créer un compte admin
+
 Si vous démarrez de zéro, vous devrez commencer par ajouter un compte admin dans la table user avec un mot de passe pré-encodé avec Bcrypt : https://www.bcrypt.fr/ La commande SQL est la suivante :
 
 ```sql
 INSERT INTO `users`(`email`, `roles`, `password`, `lastname`, `firstname`, `address`, `zipcode`, `city`, `roles_users_id`) VALUES ('votre email','[\"ROLE_ADMIN"\]','mot de passe encrypté','votre nom de famille','votre prénom','votre adresse','votre code postal','votre ville','1')
 ```
+#### Variables d'environnement
+
 Ajoutez les fichiers de configuration des variables d'environnement (.env, .env.local).
 
 Ce projet nécessite le paramétrage de APP_ENV, APP_SECRET, DATABASE_URL ET MAILER_DSN
+Pensez à supprimer ces variables d'environnemnt de votre fichier .env, avant votre premier push sur GitHub et ne les mettre que dans le fichier .env.local
+
+#### Installer les dépendances Symfony
 
 Pour installer les dépendances de symfony pour ce projet, lancez la commande :
 
 ```bash
 composer install
 ```
+
+#### Tester l'application
 
 Pour servir votre application, lancez la commande :
 
