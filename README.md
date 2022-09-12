@@ -287,7 +287,7 @@ git add Procfile
 git commit -m "Heroku Procfile"
 ```
 
-PEnsez à paramétrer les variables d'environnement (APP_ENV, APP_SECRET, DATABASE_URL ET MAILER_DSN) dans l'onglet settings de Heroku(cliquez sur Reveal Config Vars) et n'oubliez pas d'ajouter le build pack heroku/php. Dans l'onglet Resources vous ajouterez un add-on de base de données. J'ai choisis ClearDb MySQL. La valeur de DATABASE_URL devra être reprise en fonction de cette base (copiez-collez l'intégralité de la variable dans la bonne section). Pour créer le schéma et injecter les données dans votre base en ligne, l'utilisation de Workbench d'Oracle, ou d'un autre utilitaire de gestion de base de données sera nécessaire pour l'exécution du script sql fourni dans les Annexes.
+PEnsez à paramétrer les variables d'environnement (APP_ENV, APP_SECRET, DATABASE_URL ET MAILER_DSN) dans l'onglet settings de Heroku(cliquez sur Reveal Config Vars) et n'oubliez pas d'ajouter le build pack heroku/php. Dans l'onglet Resources vous ajouterez un add-on de base de données. J'ai choisis ClearDb MySQLsymfony. La valeur de DATABASE_URL devra être reprise en fonction de cette base (copiez-collez l'intégralité de la variable dans la bonne section). Pour créer le schéma et injecter les données dans votre base en ligne, l'utilisation de Workbench d'Oracle, ou d'un autre utilitaire de gestion de base de données sera nécessaire pour l'exécution du script sql fourni dans les Annexes.
 
 ## 7. Documents complémentaires
 
