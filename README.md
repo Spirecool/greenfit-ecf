@@ -53,6 +53,7 @@ Jérôme OLLIVIER
 - Composer >= 2.3.5
 - Symfony CLI
 - Github : pour le suivi du versionning
+- Heroku : pour le déploiement de l'application
 
 
 ## 6. Installation 
@@ -136,6 +137,16 @@ composer require symfony/requirements-checker
 
 Clonez le projet dans un répertoire dans le répertoire Apps de XAMPP et créez votre base de données grâce au fichier SQL fourni. 
 
+```bash
+git clone https://github.com/Spirecool/greenfit-ecf.git
+```
+
+Lancer le serveur avec PHP et MySql  :
+Pour tester le projet en local, lancez xampp, mamp, ou le logiciel que vous utilisez sur votre machine, activez Apache et MySQL.
+
+####Insérer le fichier SQL dans la base de données :
+
+Utilisez le fichier greenfit-ecf.sql situé dans le dossier Annexes du projet pour créer votre base de données. Attention, pour pouvoir utiliser les différents comptes utilisateur, pensez à changer les mots de passe et à les encoder avant de lancer les requêtes. 
 Si vous démarrez de zéro, vous devrez commencer par ajouter un compte admin dans la table user avec un mot de passe pré-encodé avec Bcrypt : https://www.bcrypt.fr/ La commande SQL est la suivante :
 
 ```sql
@@ -167,7 +178,7 @@ Pour plus d'informations, vous pouvez lire la documentations symfony :
 
 ### Déployer en ligne sur Heroku
 
-Pour le déploiement en ligne, il vous suffira de créer un compte Heroku (gratuit). Une fois le projet cloner sur un compte github, la connection peut être établie de diverses façons:
+Pour le déploiement en ligne, il vous suffira de créer un compte Heroku. Une fois le projet clôné sur un compte github, la connection peut être établie de diverses façons:
 
 1. Par les CLI heroku depuis la console VSCODE par exemple.
 2. En automatisant le déploiement sur la branche principale de votre github. Pour cela il faudra choisir l'option adéquate depuis le dashboard de Heroku dans l'onglet deploy. *
