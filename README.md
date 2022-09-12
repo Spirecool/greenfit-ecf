@@ -4,14 +4,14 @@
 [Accéder au projet en ligne](https://greenfit-ecf.herokuapp.com/)
 
 
-## Tables des matières 
-1. Informations générales(#general-info)
-<a name="general-info"></a>
-2. Sujet(#sujet)
+## Table des matières
+
+1. Informations générales
+2. Sujet
 3. Auteur
 4. Stack
 5. Prérequis
-6. Installation(#installation)
+6. Installation
 7. Documents complémentaires
 
 ## 1. Informations générales
@@ -22,13 +22,13 @@ Dans le dossier Annexes du dépôt se trouvent les documents demandés.
 
 ## 2. Sujet
 
-> Notre client, une grande marque de salles de sport (Green Fit), veut gérer les droits d'accès et de permissions d'une application web pour ses partenaires qui possèdent des structures (salles de sport).
+> Notre client, une grande marque de salles de sport (Green Fit), veut gérer les droits d'accès et de permissions d'une application web pour ses partenaires et leurs structures (salles de sport).
 
 > Chaque partenaire a son propre contrat qui dépend de la somme qu’elle verse au client. Plus ou moins de permissions lui seront alors accessibles.
 
-> Chaque partenaire peut posséder plusieurs structures (salles de sport), et bénéficie d'certain un nombre de modules (gestion de planning d'équipe, envoi de newsletters, envoi de SMS, etc...) en fonction du contrat qu'il aura souscrit avec la marque.
+> Chaque partenaire peut posséder plusieurs structures (salles de sport), et bénéficie d'un certain nombre de modules activés (gestion de planning d'équipe, envoi de newsletters, envoi de SMS, etc...) en fonction du contrat qu'il aura souscrit avec la marque.
 
-> Chaque structure est rattachée à un partenaire, et bénéficie de modules .
+> Chaque structure est rattachée à un partenaire, et bénéficie de modules.
 
 > Les Partenaires et Structures ont un accès en LECTURE SEULE à leurs informations.
 
@@ -37,7 +37,7 @@ Dans le dossier Annexes du dépôt se trouvent les documents demandés.
 ## 3. Auteur
 
 Jérôme OLLIVIER 
-- [Github](https://github.com/Spirecool/)
+
 
 ## 4. Stack
 
@@ -51,9 +51,10 @@ Jérôme OLLIVIER
 - Xampp avec Apache 2 et MySQL
 - PHP >= 8..1.6 avec au minimum ces extensions PHP : intl, pdo_pgsql, xsl, amqp, gd, openssl, sodium.
 - Composer >= 2.3.5
+- Heroku CLI (optionnel)
 - Symfony CLI
-- Github : pour le suivi du versionning
-- Heroku : pour le déploiement de l'application
+- un compte Github : pour le suivi du versionning
+- un compte Heroku : pour le déploiement de l'application
 
 
 ## 6. Installation 
