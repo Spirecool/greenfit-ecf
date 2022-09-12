@@ -12,6 +12,8 @@
 4. Stack
 5. Prérequis
 6. Installation
+    A. Déployer en local
+    B. Déployer sur Heroku
 7. Documents complémentaires
 
 ## 1. Informations générales
@@ -51,7 +53,7 @@ Jérôme OLLIVIER
 - Xampp avec Apache 2 et MySQL
 - PHP >= 8..1.6 avec au minimum ces extensions PHP : intl, pdo_pgsql, xsl, amqp, gd, openssl, sodium.
 - Composer >= 2.3.5
-- Heroku CLI (optionnel)
+- Heroku CLI (optionnel : https://devcenter.heroku.com/articles/heroku-cli)
 - Symfony CLI
 - un compte Github : pour le suivi du versionning
 - un compte Heroku : pour le déploiement de l'application
@@ -121,6 +123,8 @@ symfony serve
 
 ### Déployer en local
 
+
+
 #### Installer Xampp :
 https://www.apachefriends.org/fr/download.html
 
@@ -133,16 +137,21 @@ mkdir Apps
 
 #### Vérifier les prérequis techniques
 Pour vérifier si vous avez toutes les conditions nécessaires à l’installation de Symfony :
-
 ```bash
 composer require symfony/requirements-checker
 ```
 
 #### Clôner le projet
 Clonez le projet dans un répertoire dans le répertoire Apps de XAMPP et créez votre base de données grâce au fichier SQL fourni. 
-
 ```bash
 git clone https://github.com/Spirecool/greenfit-ecf.git
+```
+
+#### Installer les dépendances Symfony
+
+Pour installer les dépendances de symfony pour ce projet, lancez la commande :
+```bash
+composer install
 ```
 
 #### Lancer le serveur avec PHP et MySql  :
@@ -151,15 +160,29 @@ Pour tester le projet en local, lancez xampp, mamp, ou le logiciel que vous util
 
 #### Insérer le fichier SQL dans la base de données :
 
-Utilisez le fichier greenfit-ecf.sql situé dans le dossier Annexes du projet pour créer votre base de données. Attention, pour pouvoir utiliser les différents comptes utilisateur, pensez à changer les mots de passe et à les encoder avant de lancer les requêtes.
+Utilisez le fichier greenfit-ecf.sql situé dans le dossier Annexes du projet pour créer votre base de données. Attention, pour pouvoir utiliser les différents comptes utilisateur, il faudra changer les mots de passe et les encoder avant de lancer les requêtes.
+
+<!-- Ou bien : 
+
+Créez la base de données avec le terminal du projet
+
+```bash
+$ php bin/console doctrine:database:create
+```
+
+Exécutez les migrations
+```bash
+$ php bin/console doctrine:migrations:migrate
+``` -->
+
 
 ### Créer un compte admin
 
 Si vous démarrez de zéro, vous devrez commencer par ajouter un compte admin dans la table user avec un mot de passe pré-encodé avec Bcrypt : https://www.bcrypt.fr/ La commande SQL est la suivante :
-
 ```sql
 INSERT INTO `users`(`email`, `roles`, `password`, `lastname`, `firstname`, `address`, `zipcode`, `city`, `roles_users_id`) VALUES ('votre email','[\"ROLE_ADMIN"\]','mot de passe encrypté','votre nom de famille','votre prénom','votre adresse','votre code postal','votre ville','1')
 ```
+
 #### Variables d'environnement
 
 Ajoutez les fichiers de configuration des variables d'environnement (.env, .env.local).
@@ -167,25 +190,31 @@ Ajoutez les fichiers de configuration des variables d'environnement (.env, .env.
 Ce projet nécessite le paramétrage de APP_ENV, APP_SECRET, DATABASE_URL ET MAILER_DSN
 Pensez à supprimer ces variables d'environnemnt de votre fichier .env, avant votre premier push sur GitHub et ne les mettre que dans le fichier .env.local
 
-#### Installer les dépendances Symfony
-
-Pour installer les dépendances de symfony pour ce projet, lancez la commande :
-
+Saisissez vos identifiants PhpMyAdmin et définissez le nom de votre base de données dans la variable suivante :
 ```bash
-composer install
+DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7"
+```
+
+Configurer un DNS SMTP 
+```bash
+MAILER_DSN=smtp://localhost:port
+``
+
+Si vous utilisez MailTrap : 
+```bash
+MAILER_DSN=smtp:/nomUtilisateurCompteMailTrap:motDePasseCompteMailTrap@smtp.mailtrap.io:2525?encryption=tls&auth_mode=login
 ```
 
 #### Tester l'application
 
-Pour servir votre application, lancez la commande :
-
+Pour lancer votre application, lancez la commande :
 ```bash
 symfony server:start
 ```
 
-Pensez également à activer MySQL sur xampp pour que votre base de données soit accessible.
+Pensez à bien vérifier que MySQL sur Xampp soit bien activé, pour que votre base de données soit accessible.
 
-Ouvrez votre navigateur sur **<http://localhost:8000/>**
+Ouvrez votre navigateur sur <http://localhost:8000/>
 
 Pour plus d'informations, vous pouvez lire la documentations symfony :
 <https://symfony.com/doc/current/setup.html>
@@ -196,6 +225,57 @@ Pour plus d'informations, vous pouvez lire la documentations symfony :
 Pour le déploiement en ligne, il vous suffira de créer un compte Heroku. Une fois le projet clôné sur un compte github, la connection peut être établie de diverses façons:
 
 1. Par les CLI heroku depuis la console VSCODE par exemple.
+<!-- Après avoir installé Heroku CLI, depuis le terminal du projet, connectez-vous à Heroku :
+
+```bash
+heroku login
+```
+
+Créez un nouveau projet sur Heroku :
+
+```bash
+heroku create nom-du-projet
+```
+Puis relier l'application web à votre dépôt Heroku : 
+
+Ajoutez une base de données à votre projet sur Heroku, en installant un add-on. Vous pouvez prendre ClearDB MySQL qui est gratuit. 
+
+Définisez les variables d'environnement sur Heroku :
+
+Depuis le terminal du projet :
+
+```bash
+heroku create nom-du-projet
+``````
+
+Configurez l'environnement en environnement de production en reprenant les informations de votre base de données locale
+
+```bash
+heroku config:set DATABASE_URL="mysql://..."
+```
+Enfin, définissez les variables suivantes
+
+```bash
+APP_ENV=prod
+APP_SECRET=
+MAILER_DSN=
+MESSENGER_TRANSPORT_DSN
+KEY
+```
+
+Deployez l'application :
+Exécutez les commandes suivantes :
+
+```bash
+heroku config:set DATABASE_URL="mysql://..."
+```
+
+En cas d'erreur, verifiez les logs avec la commande : 
+
+```bash
+heroku logs --tail
+``` -->
+
 2. En automatisant le déploiement sur la branche principale de votre github. Pour cela il faudra choisir l'option adéquate depuis le dashboard de Heroku dans l'onglet deploy. *
 3. De façon manuelle, en sélection la branche à déployer en bas de la page deploy. 
 
@@ -207,7 +287,7 @@ git add Procfile
 git commit -m "Heroku Procfile"
 ```
 
-Attention, les variables d'environnement (APP_ENV, APP_SECRET, DATABASE_URL ET MAILER_DSN) seront à paramétrer dans l'onglet settings (cliquez sur Reveal Config Vars) et n'oubliez pas d'ajouter le build pack heroku/php. Dans l'onglet Resources vous ajouterez l'Add-on de base de données. J'ai choisis ClearDb, gratuit mais nécessitant tout de même l'entrée d'une carte bleue. La valeur de DATABASE_URL devra être reprise en fonction de cette base (copiez-collez l'intégralité de la variable dans la bonne section). Pour créer le schéma et injecter les données dans votre base en ligne, l'utilisation de workbench d'oracle, ou d'un autre utilitaire de gestion de base de données sera nécessaire pour l'exécution du script sql fourni ci-dessous.
+Attention, les variables d'environnement (APP_ENV, APP_SECRET, DATABASE_URL ET MAILER_DSN) seront à paramétrer dans l'onglet settings (cliquez sur Reveal Config Vars) et n'oubliez pas d'ajouter le build pack heroku/php. Dans l'onglet Resources vous ajouterez l'Add-on de base de données. J'ai choisis ClearDb. La valeur de DATABASE_URL devra être reprise en fonction de cette base (copiez-collez l'intégralité de la variable dans la bonne section). Pour créer le schéma et injecter les données dans votre base en ligne, l'utilisation de Workbench d'Oracle, ou d'un autre utilitaire de gestion de base de données sera nécessaire pour l'exécution du script sql fourni dans les Annexes.
 
 ## 7. Documents complémentaires
 
@@ -228,10 +308,5 @@ Attention, les variables d'environnement (APP_ENV, APP_SECRET, DATABASE_URL ET M
 + [15-manuel-utilisation.html](en slides)(lien github)
 + [16-routes.pdf](en slides)(lien github)
 
-+ [6-](lien github)
-+ [3-mockups.pdf](lien github)
-+ [3-mockups.pdf](lien github)
-+ [3-mockups.pdf](lien github)
-+ [3-mockups.pdf](lien github)
 
 
