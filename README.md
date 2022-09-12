@@ -58,7 +58,7 @@ Jérôme OLLIVIER
 
 ## 6. Installation 
 
-### Installer en local
+<!-- ### Installer en local
 
 Pour vérifier si vous avez toutes les conditions nécessaires à l’installation de Symfony :
 
@@ -115,7 +115,7 @@ Sortir de la console MySQL
 Et lancer l'application en local avec :
 ```bash
 symfony serve
-```
+``` -->
 
 
 ### Déployer en local
