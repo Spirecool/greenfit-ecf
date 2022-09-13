@@ -603,7 +603,7 @@ th {
 }
 
 tr th, tr {
-  text-align: center;
+  text-align: left;
 }
 
 /* tr {
@@ -772,7 +772,7 @@ input {
   margin-bottom: 16px;
   padding: 6px 3px;
 }
-
+02 38 39 40 41
 @media all and (min-width: 700px) {
   input {
     width: 25%;
