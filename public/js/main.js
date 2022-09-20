@@ -12,7 +12,7 @@ const elementsInactifs = document.getElementsByClassName('inactif');
 
 const elementsActifs = document.getElementsByClassName('actif');
 
-const elementsTout = [...elementsInactifs,...elementsActifs];
+const elementsAll = [...elementsInactifs,...elementsActifs];
 
 const showActifs = ()=> {
 
@@ -44,14 +44,14 @@ const showInactifs= ()=> {
     }
 }
 
-const showTout= ()=> {
+const showAll= ()=> {
  
     // Iterate through the retrieved elements and add the necessary class names.
    
-    for(var i = 0; i < elementsTout.length; i++)
+    for(var i = 0; i < elementsAll.length; i++)
     {
-      elementsTout[i].classList.remove('d-none');
-        console.log(elementsTout[i].className);
+      elementsAll[i].classList.remove('d-none');
+        console.log(elementsAll[i].className);
     }
 }
 
@@ -69,9 +69,9 @@ if(boutonInactif) {
 
 
 // sur le bouton tout cela nous montre tous les partenaires
-const boutonTout = document.getElementById('tout');
-if(boutonTout) {
-  boutonTout.addEventListener("click", showTout);
+const boutonAll = document.getElementById('all');
+if(boutonAll) {
+  boutonAll.addEventListener("click", showAll);
 }
 
 });
