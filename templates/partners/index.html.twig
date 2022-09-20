@@ -5,16 +5,11 @@
 {% block body %}
     <h1 class="py-5">Liste des <span class="heading-color">Partenaires</span></h1>
 
-{# <div class="anim-typewriter">
-  <h2 class="heading ">Liste des Partenaires</h2>
- </div> #}
 
-    <div>
-        <div class="search pb-5">
-            <i id="icon" class="fas fa-search icon"></i> 
-            <input id='searchid'></input>
-        </div>
-    </div>   
+    <button id="tout"> TOUT</button>
+    <button id="actif"> ACTIFS</button>
+    <button id="inactif"> INACTIFS</button>
+    
     <div class="table-responsive-xl mb-5 ">
         <table class="table">
             <thead>
@@ -33,7 +28,7 @@
             </thead>
             <tbody>
             {% for partner in partners %}
-                <tr>
+                <tr class="{{partner.isActive ? 'actif' : 'inactif'}}">
 
                     <td>{{ partner.name }}</td>
                     <td>{{ partner.isActive ? '<div class="on">Activé</div>' : '<div class="off">Désactivé</div>' }}</td>

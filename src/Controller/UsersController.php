@@ -31,9 +31,11 @@ class UsersController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // on fixe automatiquement le rôle ADMIN pour les nouveaux techniciens créés
             $r[]='ROLE_ADMIN';
             $user->setRoles($r);
             $user->setRolesUsers($rolesUsersRepository->find(1));
+            // encodage du mote de passe 
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
