@@ -5,7 +5,11 @@
 {% block body %}
 
     <h1 class="py-5">Liste des <span class="heading-color">Structures</span></h1>
-
+    <div class="filter">
+        <button id="tout"> TOUTES</button>
+        <button id="actif"> ACTIVES</button>
+        <button id="inactif"> INACTIVES</button>
+    </div>
     <div class="table-responsive-xl mb-5 ">
         <table class="table">
             <thead>
@@ -24,9 +28,9 @@
             </thead>
             <tbody>
             {% for structure in structures %}
-            
+                <tr class="{{structure.isActive ? 'actif' : 'inactif'}}">
                     <td>{{ structure.name }}</td>
-                    <td>{{ structure.isActive ? '<div class="on">Activé</div>' : '<div class="off">Désactivé</div>' }}</td>
+                    <td>{{ structure.isActive ? '<div class="on">Activée</div>' : '<div class="off">Désactivée</div>' }}</td>
                     <td>{{ structure.partners ? structure.partners.name : '' }}</td>
                     <td>{{ structure.users.email }}</td>
                     <td>{{ structure.users.city }}</td>
