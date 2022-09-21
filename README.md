@@ -291,22 +291,14 @@ PEnsez à paramétrer les variables d'environnement (APP_ENV, APP_SECRET, DATABA
 
 ## 7. Documents complémentaires
 
-+ [1-greenfit-bdd.sql](lien github)
-+ [2-wireframes.pdf](lien github)
-+ [3-mockups.pdf](lien github)
-+ [4-charte-graphique.pdf](lien github)
-+ [5-diagramme-cas-utilisation.png](lien github)
-+ [6-MCD.pdf](lien github)
-+ [7-MLD.pdf](lien github)
-+ [8-MPD.pdf](lien github)
-+ [9-diagramme-sequence-partenaires-actifs.pdf](lien github)
-+ [10-diagramme-sequence-modification-des-droits.pdf](lien github)
-+ [11-document-technique.pdf](lien github)
-+ [12-guide-de-deploiement.pdf](lien github)
-+ [13-document-technique.pdf](lien github)
-+ [14-manuel-utilisation.pdf](lien github)
-+ [15-manuel-utilisation.html](en slides)(lien github)
-+ [16-routes.pdf](en slides)(lien github)
+Les documents demandés sont dans le répertoire "annexes":
+- Guide déploiement au format PDF
+- Manuel d'utilisation au format html (slides)
+- Manuel d'utilisation au format PDF
+- Questions et réflexion, document technique
 
-
-
+Les autres documents nécessaires à mon projet son sur mon Google Drive (le lien est sur la copie)
+- Sécurité et bonnes pratiques
+- Les zonings
+- Les wireframes
+- Les mockups, etc.
