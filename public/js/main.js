@@ -20,12 +20,10 @@ const showActifs = ()=> {
     for(var i = 0; i < elementsInactifs.length; i++)
     {
       elementsInactifs[i].classList.add('d-none');
-        console.log(elementsInactifs[i].className);
     }
     for(var i = 0; i < elementsActifs.length; i++)
     {
       elementsActifs[i].classList.remove('d-none');
-        console.log(elementsActifs[i].className);
     }
 }
 
@@ -35,12 +33,10 @@ const showInactifs= ()=> {
     for(var i = 0; i < elementsInactifs.length; i++)
     {
       elementsInactifs[i].classList.remove('d-none');
-        console.log(elementsInactifs[i].className);
     }
     for(var i = 0; i < elementsActifs.length; i++)
     {
       elementsActifs[i].classList.add('d-none');
-        console.log(elementsActifs[i].className);
     }
 }
 
@@ -51,7 +47,7 @@ const showAll= ()=> {
     for(var i = 0; i < elementsAll.length; i++)
     {
       elementsAll[i].classList.remove('d-none');
-        console.log(elementsAll[i].className);
+
     }
 }
 
