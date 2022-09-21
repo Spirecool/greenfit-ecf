@@ -22,11 +22,6 @@ class StructuresType extends AbstractType
                 'required' => true,
                 'label' => 'La structure est activée',
             ])
-            // ->add('is_active', CheckboxType::class, [
-            //     'label_attr'    => [
-            //     'class' => 'checkbox-switch',
-            //     ],
-            // ])
             ->add('name', TextType::class, [
                 'required' => true,
                 'label' => 'Nom de la structure',
@@ -46,8 +41,6 @@ class StructuresType extends AbstractType
                 'expanded' => true,
             ], )
 
-            
-          
             ->add('partners')
            
         ;

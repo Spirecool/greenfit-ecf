@@ -19,7 +19,6 @@ class PartnersType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            // ->add('is_active')
             ->add('is_active', CheckboxType::class, [
                 'required' => true,
                 'label' => 'Le partenaire est activé',
@@ -33,8 +32,7 @@ class PartnersType extends AbstractType
                 'data_class' => Users::class,
                 'label' => 'DONNÉES DU GÉRANT',
             ])
-
-            
+      
             ->add('modules', EntityType::class, [
                 'required' => true,
                 'label' => 'Modules activés pour le partenaire',
@@ -42,8 +40,6 @@ class PartnersType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
             ])
-            
-            // ->add('modules')
         ;
     }
 

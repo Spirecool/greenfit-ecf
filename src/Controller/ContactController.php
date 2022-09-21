@@ -26,7 +26,6 @@ class ContactController extends AbstractController
                 $contact = $form->getData();
 
                 $manager->persist($contact);
-                // dd($contact);
 
                 $manager->flush();
 
@@ -51,11 +50,6 @@ class ContactController extends AbstractController
                     'Votre message a bien été envoyé !'
                 );
             }
-
-
-                // return $this->render(FOrm'contact/index.html.twig', [
-                //         'form'=> $form->createView(),
-                //     ]);
 
                     
         return $this->renderForm('contact/index.html.twig', [

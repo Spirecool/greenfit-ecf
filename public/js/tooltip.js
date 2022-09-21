@@ -1,4 +1,5 @@
 // Script des Tooltips
+
 // Librairie : Tippy.js (https://atomiks.github.io/tippyjs/)
 
 tippy('#tooltip-dashboard', {

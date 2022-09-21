@@ -24,10 +24,7 @@ body {
   background-size: var(--bgsize);
   
 }
-/* body {
-  background-image: var(--bgimage);
-  background-size: var(--bgsize);
-} */
+
 
 
 /****************/
@@ -64,9 +61,6 @@ a:hover {
   transition: 0.4s;
 }
 
-/* body {
-  background-image: repeating-radial-gradient(circle at center center, transparent 0px, transparent 13px,rgba(0,0,0,0.03) 13px, rgba(0,0,0,0.03) 24px,transparent 24px, transparent 62px,rgba(0,0,0,0.03) 62px, rgba(0,0,0,0.03) 96px),repeating-radial-gradient(circle at center center, rgb(255,255,255) 0px, rgb(255,255,255) 14px,rgb(255,255,255) 14px, rgb(255,255,255) 18px,rgb(255,255,255) 18px, rgb(255,255,255) 28px,rgb(255,255,255) 28px, rgb(255,255,255) 32px); background-size: 21px 21px;
-} */
 
 h1, h2 {
 font-family: 'Montserrat', sans-serif;
@@ -393,13 +387,11 @@ th, td, p, h1, h2,  #icon, label {
            }
 }
 
-/* @media screen and (max-width: 455px) {
-  .icon-home { 
-            display: none;
-           }
-} */
 
+/******************/
 /* Dark Mode icon */
+/******************/
+
 
 #icon {
   width: 25px;
@@ -435,12 +427,6 @@ th, td, p, h1, h2,  #icon, label {
   overflow-y: auto;
   color: var(--sidebar);
 }
-
-/* @media screen and (max-width: 1750px) {
-  .wrapper .sidebar { 
-            display: none;
-           }
-} */
 
 .wrapper .sidebar .sidebar-menu {
   overflow: hidden;
@@ -487,16 +473,12 @@ th, td, p, h1, h2,  #icon, label {
   color:var(--secondary-color);
 }
 
-/* @media screen and (max-width: 1750px) {
-  .sidebar-btn { 
-            display: none;
-           }
-} */
 
 
 /*************/
 /* CONTAINER */
 /*************/
+
 
 
 .wrapper .main-container {
@@ -529,9 +511,11 @@ th, td, p, h1, h2,  #icon, label {
 }
 
 
+
 /*************/
 /* CONTENT */
 /*************/
+
 
 
 .wrapper .main-container .content {
@@ -547,6 +531,7 @@ th, td, p, h1, h2,  #icon, label {
 /**************/
 /* LOGIN FORM */
 /**************/
+
 
 
 .global-container{
@@ -606,15 +591,15 @@ tr th, tr {
   text-align: left;
 }
 
-/* tr {
-  text-align: center;
-} */
 
 @media screen and (max-width: 995px) {
   tr th, tr  { 
     text-align:start;
            }
 }
+
+
+
 /**************/
 /* LOGIN PAGE */
 /**************/
@@ -759,30 +744,11 @@ input {
 }
 
 
-/******************/
-/* CREATION FORMS */
-/******************/
-
-/* textarea, label {
-  width: 100%;
-}
-
-input {
-  width: 100%;
-  margin-bottom: 16px;
-  padding: 6px 3px;
-}
-02 38 39 40 41
-@media all and (min-width: 700px) {
-  input {
-    width: 25%;
-  }
-} */
-
 
 /**********************/
 /* PARTNER PAGE CARDS */
 /**********************/
+
 
 
  .box{

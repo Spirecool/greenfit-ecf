@@ -1,3 +1,5 @@
+//Dark mode
+
 const icon = document.getElementById("icon");
 
 if(localStorage.getItem("theme") == null) {

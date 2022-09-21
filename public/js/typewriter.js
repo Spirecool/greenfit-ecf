@@ -1,3 +1,5 @@
+// script type writer effect in H1 
+
 const adminText = document.getElementById('admin-type-writer');
 
 new Typewriter(adminText, {

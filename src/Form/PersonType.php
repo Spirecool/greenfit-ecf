@@ -31,13 +31,6 @@ class PersonType extends AbstractType
                 ],
                 'label' => 'Adresse Email'
                 ])
-            
-                
-            // ->add('roles_users', EntityType::class, [
-            //         'required' => true,
-            //         'label' => 'Rôle de l\'utilisateur',
-            //         'class' => RolesUsers::class,
-            //     ])
     
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
