@@ -14,9 +14,10 @@ const elementsActifs = document.getElementsByClassName('actif');
 
 const elementsAll = [...elementsInactifs,...elementsActifs];
 
+// parcourt le tableau des éléments avec deux boucles for, et ajoutera la classe d-none (display none de Bootstrap) aux éléments  inactifs,
+// ils disparaîtront de la liste, et supprimera la classe d-none pour les éléments actifs, ils seront affichés dans la liste 
 const showActifs = ()=> {
-
-    // Iterate through the retrieved elements and add the necessary class names.
+    // Parcoure les éléments récupérés et ajoute le nom des classes nécessaires.
     for(var i = 0; i < elementsInactifs.length; i++)
     {
       elementsInactifs[i].classList.add('d-none');
@@ -27,9 +28,9 @@ const showActifs = ()=> {
     }
 }
 
+// parcourt le tableau des éléments avec deux boucles for, et supprimera la classe d-none aux éléments inactifs, 
+// ils seront affichés dans la liste, et ajoutera la classe d-none pour les éléments actifs, ils disparaîtront de la liste
 const showInactifs= ()=> {
- 
-    // Iterate through the retrieved elements and add the necessary class names.
     for(var i = 0; i < elementsInactifs.length; i++)
     {
       elementsInactifs[i].classList.remove('d-none');
@@ -40,16 +41,15 @@ const showInactifs= ()=> {
     }
 }
 
+// parcourt le tableau des éléments avec deux boucles for, et supprimera la classe d-none, 
+// pour afficher tous les éléments actifs et inactifs. 
 const showAll= ()=> {
- 
-    // Iterate through the retrieved elements and add the necessary class names.
-   
     for(var i = 0; i < elementsAll.length; i++)
     {
       elementsAll[i].classList.remove('d-none');
-
     }
 }
+
 
 // sur le bouton actif cela nous montre les actifs 
 const boutonActif = document.getElementById('actif');

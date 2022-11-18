@@ -10,7 +10,6 @@
 :root {
   --primary-color: #edf2fc;
   --secondary-color: #212121;
-
 }
 
 .dark-theme {
@@ -22,7 +21,6 @@ body {
   background-color: var(--primary-color);
   background-image: var(--bgimage);
   background-size: var(--bgsize);
-  
 }
 
 
@@ -120,7 +118,7 @@ h1 {
   width: 200px;
   height: 200px;
   border-radius: 30px;
-box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
   cursor: pointer;
   transition: 0.4s;
 }
