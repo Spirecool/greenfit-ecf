@@ -1,14 +1,13 @@
     <div class="header">
     
         <div class="header-menu">
-
         
             <a href="/" class="text-center">
                 <div class="title"> Green <span>FIT</span></div>
             </a>
 
-             {% if  is_granted('ROLE_ADMIN') %}
-             
+            {% if  is_granted('ROLE_ADMIN') %}
+            
             <div class="sidebar-btn">
                 <i class="fa-solid fa-bars"></i>
             </div>

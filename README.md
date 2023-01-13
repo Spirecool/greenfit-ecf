@@ -302,3 +302,6 @@ Les autres documents nécessaires à mon projet son sur mon Google Drive (le lie
 - Les zonings
 - Les wireframes
 - Les mockups, etc.
+
+Login compte Admin : admin@greefit.fr
+Password : PasswordAdmin22
